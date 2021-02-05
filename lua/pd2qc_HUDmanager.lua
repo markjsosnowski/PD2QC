@@ -5,10 +5,11 @@ end
 function PD2QC:CreatePanelFromTable(table)
     local hint_panel_settings = {}
 
-    hint_panel_settings.min_width = 250
-    hint_panel_settings.padding = 10
-    hint_panel_settings.center_x = 1 --todo
-    hint_panel_settings.center_y = 1
+    hint_panel_settings.min_width = 300
+    hint_panel_settings.min_height = 100
+    hint_panel_settings.padding = 5
+    hint_panel_settings.center_x = 0.9 --todo
+    hint_panel_settings.center_y = 0.9
 
     hint_panel_settings.background = {}
     hint_panel_settings.background.alpha = 0.75
@@ -23,45 +24,18 @@ function PD2QC:CreatePanelFromTable(table)
     hint_panel_settings.text.color = Color.white
     hint_panel_settings.text.layer = 2
 
-    
-    hint_panel_settings.items = {}
-    local text_item
-    
-    --Left
-    text_item = {}
-    text_item.name = "LEFT"
-    text_item.label ="LEFT"
-    text_item.value = table["LEFT"] .. "\nLeft"
-    hint_panel_settings.items[0] = text_item
+    hint_panel_settings.text_item = {}
+    hint_panel_settings.text_item.name = "body"
+    hint_panel_settings.text_item.value = "[UP]\n" .. table["UP"] .. "\n[LEFT] ".. table["LEFT"] .. " o " .. table["RIGHT"] .. "[RIGHT]\n" .. table["DOWN"] .. "\n[DOWN]"
 
-    --Right
-    text_item = {}
-    text_item.name = "RIGHT"
-    text_item.label ="RIGHT"
-    text_item.value = table["RIGHT"] .. "\nRight"
-    hint_panel_settings.items[2] = text_item
-
-    --Up
-    text_item = {}
-    text_item.name = "UP"
-    text_item.label ="UP"
-    text_item.value = "Up\n" .. table["UP"]
-    hint_panel_settings.items[1] = text_item
-
-    --Down
-    text_item = {}
-    text_item.name = "DOWN"
-    text_item.label ="DOWN"
-    text_item.value = table["DOWN"] .. "\nDown"
-    hint_panel_settings.items[3] = text_item
-
+    return hint_panel_settings
 end
 
 function PD2QC:ShowHintPanel(table)
     local hint_panel_settings = PD2QC:CreatePanelFromTable(table)
 
     local layer = tweak_data.gui.DIALOG_LAYER + 100
-    local pd2qc_panel = PD2QC:newPanel(PD2QC:getHudPanel, "pd2qc_panel", layer)
+    local pd2qc_panel = PD2QC:newPanel(PD2QC:getHudPanel(), "pd2qc_panel", layer)
     PD2QC.hint_panel = pd2qc_panel
     layer = layer + 10
     local pd2qc_container_panel = PD2QC:newPanel(pd2qc_panel, "pd2qc_container_panel", layer)
@@ -73,15 +47,12 @@ function PD2QC:ShowHintPanel(table)
 
     --texts
     --todo header
-    --todo change indexes to text
-    hint_panel_settings.items[0].text_panel = PD2QC:newText(pd2qc_padding_panel, "LeftLabel", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.items[0].value, "left", "grow","grow")
-    hint_panel_settings.items[1].text_panel = PD2QC:newText(pd2qc_padding_panel, "UpLabel", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.items[1].value, "center", "grow","grow")
-    hint_panel_settings.items[2].text_panel = PD2QC:newText(pd2qc_padding_panel, "RightLabel", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.items[2].value, "right", "grow","grow")
-    hint_panel_settings.items[3].text_panel = PD2QC:newText(pd2qc_padding_panel, "DownLabel", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.items[3].value, "center", "grow","grow")
+    --todo change indexes to texttext_item.value,
+
+    hint_panel_settings.text_item.text_panel = PD2QC:newText(pd2qc_padding_panel, "body", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_item.value, "center", "grow","grow")
 
     pd2qc_padding_panel:set_width(hint_panel_settings.min_width)
-    --todo add min height
-    pd2qc_padding_panel:set_height(hint_panel_settings.min_width)
+    pd2qc_padding_panel:set_height(hint_panel_settings.min_height)
     pd2qc_container_panel:set_width(pd2qc_padding_panel:width() + hint_panel_settings.padding)
     pd2qc_container_panel:set_height(pd2qc_padding_panel:height() + hint_panel_settings.padding)
 
