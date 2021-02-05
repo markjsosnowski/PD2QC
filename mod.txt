@@ -1,0 +1,64 @@
+{
+	"name": "PD2QC: Quickchat Mod",
+	"description": "Send 16 unique messages quickly with keybinds instead of typing.",
+	"author": "sl0n & foof",
+	"contact": "sl0nderman@gmail.com",
+	"version": "0.1",
+	"image" : "pd2qc.png",
+	"color" : "0.25 0.75 1",
+	"priority": 0,
+	"pre_hooks": [
+		{
+			"hook_id": "core/lib/utils/coreapp",
+			"script_path": "lua/delayed_calls.lua"
+		}
+	],
+	"hooks": [
+		{
+			"hook_id": "lib/managers/chatmanager",
+			"script_path": "lua/pd2qc.lua"
+		},
+		{
+			"hook_id": "lib/managers/hudmanager",
+			"script_path":	"lua/pd2qc_HUDmanager.lua"
+		}
+	],
+	"keybinds": [
+		{
+			"keybind_id": "pd2qc_left",
+			"name": "Select Left Quickchat",
+			"description": "Select the left Quickchat catagory or left option of the Quickchat catagory you are currently in.",
+			"script_path": "lua/pd2qc_left.lua",
+			"run_in_menu": true,
+			"run_in_game": true,
+			"localized": false
+		},
+		{
+			"keybind_id": "pd2qc_up",
+			"name": "Select Up Quickchat",
+			"description": "Select the up Quickchat catagory or up option of the Quickchat catagory you are currently in.",
+			"script_path": "lua/pd2qc_up.lua",
+			"run_in_menu": false,
+			"run_in_game": true,
+			"localized": false
+		},
+		{
+			"keybind_id": "pd2qc_right",
+			"name": "Select Right Quickchat",
+			"description": "Select the right Quickchat catagory or right option of the Quickchat catagory you are currently in.",
+			"script_path": "lua/pd2qc_right.lua",
+			"run_in_menu": false,
+			"run_in_game": true,
+			"localized": false
+		},
+		{
+			"keybind_id": "pd2qc_down",
+			"name": "Select Down Quickchat",
+			"description": "Select the down Quickchat catagory or down option of the Quickchat catagory you are currently in.",
+			"script_path": "lua/pd2qc_down.lua",
+			"run_in_menu": false,
+			"run_in_game": true,
+			"localized": false
+		}
+	]
+}

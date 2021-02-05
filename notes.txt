@@ -1,0 +1,95 @@
+TODO:
+figure out how delay calls work 
+create hint menus
+
+
+
+
+https://payday-2-blt-docs.readthedocs.io/en/latest/lua/quick_menu/
+
+local loud_menu = QuickMenu:new("Payday 2 Quickchats", "🡅 General \n 🡄 Stealth \n 🡆 Loud \n 🡇 Orders, {}, true)
+
+
+🡅 General \n 🡄 Stealth \n 🡆 Loud \n 🡇 Orders
+
+Mod Options
+Persistant Hint Menu: Boolean 
+Location: Vanilla (left), wolfhud (right), more?
+< selectable list > 
+
+Key     Chat Line                   Hint Line
+[Loud]
+🡅	    I need Ammunition!          Need Ammo
+🡇	    I need Health!              Need Health
+🡆	    Help me kill this!          Help!
+🡄	    Please dominate enemies.    Dominate
+
+[Stealth]
+🡄	Someone answer this pager.      Pager
+🡆	Someone bag this body.          Body Bag
+🡅	Use your ECM now!               ECM
+🡇	Watch out, careful!             Care!
+
+[General]
+🡅	You get that.                   You go.
+🡇	I got it.                       I got it.  
+🡆	I'm in trouble!                 Help!
+🡄	Take care of the civilians.     Watch Civs
+
+[Orders]
+🡅	Come here.                      Come
+🡇	Stay there.                     Stay
+🡆	Let's move.                     Let's go
+🡇	Get to a safe place.            Take cover
+
+
+
+
+
+right_input(){
+    if prev = nil
+        prev = right
+        show right_menu
+        delayed_call(close_right_menu())
+    elif prev = up
+        close_right_menu()
+        remove_delayed_call()
+        chat("Help me!")
+        play_audio("Help!")
+    elif prev = right, down, left
+        ''
+    else
+        log(Should_never get here)
+}
+
+close_right_menu(){
+    prev = nil //it's here so that if the menu times out, it still resets to the top
+    hide_menu()
+    if(persistant_hint_menu is True)
+        show_top_hint_menu()
+}
+
+chat table looks something like this 
+
+chat_table = {
+    left = {
+        left 
+        right
+        up
+        down
+    }
+    right = {}
+    up = {}
+    down = {}
+}
+
+so when LEFT is selected, dynamically create the hint window by passing chat_table.left to it 
+and then getting chat_table.left.left right up down from it in the required posistions 
+
+for the TOP menu, create a new table that is the labels that looks like 
+top_menu = {
+    left = loud 
+    right = stealth
+}
+which will allow for the use of this dynamicly created hint gui panel to be used by all inputs
+top menu is only displayed if "persistant hint" option in mod options is checked 
