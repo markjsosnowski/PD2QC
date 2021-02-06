@@ -1,7 +1,7 @@
 PD2QC: Payday 2 Quickchats Mod
 ------------------------------
 
-No need to find a safe place in stealth while you stop and type.
+No need to find a safe place in stealth while you take the time to type.
 Stop standing still for snipers while trying to communicate with your pub team. 
 With PD2QC, up to sixteen (16) phrases are at your finger tips with two (2) quick taps. 
 
@@ -19,4 +19,7 @@ Ability to bind the quickchat menus to any key.
 Dynamically coded: easily modify the chat lines in the source to suit your needs.
 A quickchat hint panel so you don't have to memorize each menu (and can be turned off if you don't need it).
 Compatibilty between most popular custom huds and the quickchat hint panel.  
-Plays a relevant voice line when you use each chat (and can be turned off).
+Plays a relevant voice line when you use each chat (can be turned off).
+
+Requires BLT2.
+Includes Delayed Calls Fix by SNH20. 

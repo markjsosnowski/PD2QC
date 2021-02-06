@@ -1,9 +1,9 @@
 {
 	"name": "PD2QC: Quickchat Mod",
-	"description": "Send 16 unique messages quickly with keybinds instead of typing.",
-	"author": "sl0n & foof",
+	"description": "Send 16 unique messages quickly with keybinds instead of typing or clunky menus.",
+	"author": "sl0nderman & fooksie",
 	"contact": "sl0nderman@gmail.com",
-	"version": "0.1",
+	"version": "1.0",
 	"image" : "pd2qc.png",
 	"color" : "0.25 0.75 1",
 	"priority": 0,

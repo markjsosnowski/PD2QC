@@ -2,25 +2,32 @@ if not _G.PD2QC then
     dofile(ModPath .. "lua/pd2qc.lua")
 end
 
-local function getMinWith(table)
-    --TODO change this to use a keybind table instead of string literals
-    local min = #table["LEFT"] + #table["RIGHT"] + #"LEFT" + #"RIGHT"
+--TODO make a function that gets the actual bound keys here
+PD2QC.KEYBINDS ={
+    LEFT = "LEFT",
+    UP = "UP",
+    RIGHT = "RIGHT",
+    DOWN = "DOWN"
+}
+
+local function getMinWidth(table)
+    local min = #table["LEFT"] + #table["RIGHT"] + #PD2QC.KEYBINDS["LEFT"] + #PD2QC.KEYBINDS["RIGHT"] 
     if(#table["UP"] > min) then
         min = #table["UP"]
     end
     if(#table["DOWN"] > min) then
         min = #table["DOWN"]
     end
-    return (min * 10) - min
+    return (min * 8)
 end
 
 function PD2QC:CreatePanelFromTable(table)
     local hint_panel_settings = {}
 
-    hint_panel_settings.min_width = getMinWith(table)
+    hint_panel_settings.min_width = getMinWidth(table)
     hint_panel_settings.min_height = 90
     hint_panel_settings.padding = 2
-    hint_panel_settings.center_x = 0.75 --todo
+    hint_panel_settings.center_x = 0.8 --todo
     hint_panel_settings.center_y = 0.70
 
     hint_panel_settings.background = {}
@@ -36,24 +43,23 @@ function PD2QC:CreatePanelFromTable(table)
     hint_panel_settings.text.color = Color.white
     hint_panel_settings.text.layer = 2
 
---┌──────────────────────────────────────────┐
---│               Up Message                 │
---│                  [UP]                    │
---│Left Message [LEFT]  [RIGHT] Right Message│
---│                 [DOWN]                   │
---│              Down Message                │
---└──────────────────────────────────────────┘
---Todo dynamically write min width based on longest message
---Todo put keybinds in a table and refernce them instead of string literals
+    --Ends up looking like this:
+    --┌──────────────────────────────────────────┐
+    --│               Up Message                 │
+    --│                  [UP]                    │
+    --│Left Message [LEFT]  [RIGHT] Right Message│
+    --│                 [DOWN]                   │
+    --│              Down Message                │
+    --└──────────────────────────────────────────┘
     hint_panel_settings.text_items = {}
     hint_panel_settings.text_items[0] = {}
-    hint_panel_settings.text_items[0].value = table["UP"] .. "\n[UP]"
+    hint_panel_settings.text_items[0].value = table["UP"] .. "\n[" .. PD2QC.KEYBINDS["UP"] .. "]"
     hint_panel_settings.text_items[1] = {}
-    hint_panel_settings.text_items[1].value = "\n\n" .. table["LEFT"] .. " [LEFT]" 
+    hint_panel_settings.text_items[1].value = "\n\n" .. table["LEFT"] .. " [" .. PD2QC.KEYBINDS["LEFT"] .. "]"
     hint_panel_settings.text_items[2] = {}
-    hint_panel_settings.text_items[2].value = "\n\n[RIGHT] " .. table["RIGHT"]
+    hint_panel_settings.text_items[2].value = "\n\n[" .. PD2QC.KEYBINDS["RIGHT"] .. "] " .. table["RIGHT"]
     hint_panel_settings.text_items[3] = {}
-    hint_panel_settings.text_items[3].value= "\n\n\n[DOWN]\n" .. table["DOWN"]
+    hint_panel_settings.text_items[3].value= "\n\n\n[" .. PD2QC.KEYBINDS["UP"] .. "]\n" .. table["DOWN"]
     return hint_panel_settings
 end
 
@@ -77,6 +83,7 @@ function PD2QC:ShowHintPanel(table)
     hint_panel_settings.text_items[2].text_panel = PD2QC:newText(pd2qc_container_panel, "right", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[2].value, "right", "right","grow")
     hint_panel_settings.text_items[3].text_panel = PD2QC:newText(pd2qc_container_panel, "down", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[3].value, "center", "center","grow")
 
+    --TODO reimplement padding layer so it looks pretty
     --pd2qc_padding_panel:set_width(hint_panel_settings.min_width)
     --pd2qc_padding_panel:set_height(hint_panel_settings.min_height)
     --pd2qc_padding_panel:set_center_x(math.floor())

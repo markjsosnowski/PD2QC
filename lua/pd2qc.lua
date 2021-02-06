@@ -9,13 +9,21 @@ if not _G.DelayedCallsFix then
     dofile(ModPath .. "lua/delayed_calls.lua")
 end
 
+--IF YOU DON'T KNOW WHAT YOU ARE DOING
+--ONLY CHANGE THINGS INSIDE THIS BOX
+--───────────────────────────────────────────────────────────┐
+
+--These will later be changable in Mod Options
 PD2QC.SETTINGS = {
-    persistant_menu = false
-    --TODO hud placement
+    persistant_menu = false,
+    --voices_enabled = false,
+    --0: Vanilla HUD (Lower Left); 1: WolfHUD (Middle Right)
+    --hud_placement = 0
 }
 
---IF YOU ARE LOOKING TO CHANGE THE CHAT MESSAGES
---DO SO IN THIS TABLE AND ONLY THIS TABLE
+--If you wish to change the specific chat messages,
+--do so in this table and only in this table.
+--Everything else will be changed automatically.
 PD2QC.CHATS = {
     LEFT={
         LEFT="Answer this pager.",
@@ -43,17 +51,19 @@ PD2QC.CHATS = {
     }
 }
 
+--When the persistant_menu setting is true, a hint menu
+--showing these catagories will always been on the HUD
 PD2QC.CATAGORY = {
     LEFT = "Stealth",
     UP = "General",
     RIGHT = "Loud",
     DOWN = "Orders"
 }
+--───────────────────────────────────────────────────────────┘
 
 PD2QC.VOICE ={} --TODO assign each command a relevant voice line
 
 --Main Script
-
 PD2QC.PREV = nil
 
 --if PD2QC.SETTINGS.persistant_menu and Utils:IsInHeist() then
@@ -85,7 +95,7 @@ function PD2QC:RESET()
     end
 end
 
---Puts the chat reference as a system message (not used)
+--For Testing, Not Used. Prints a system message instead of a HUD element of the choices.
 function PD2QC:BETA_HINTPOPUP(chat_table)
     _hint_message = "[PD2QC]\nUP:" .. chat_table["UP"] .. "\nLEFT:" .. chat_table["LEFT"] .. "\nRIGHT:" .. chat_table["RIGHT"] .. "\nDOWN:" .. chat_table["DOWN"]
     managers.chat:feed_system_message(ChatManager.GAME, _hint_message)
