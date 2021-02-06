@@ -15,7 +15,7 @@ end
 
 --These will later be changable in Mod Options
 PD2QC.SETTINGS = {
-    --Always show the catagory selection menu on your HUD
+    --Always show the CATEGORY selection menu on your HUD
     persistant_menu = false,
     --Should voice lines play when using a quickchat?
     voices_enabled = false,
@@ -58,7 +58,7 @@ PD2QC.CHATS = {
 
 --When the persistant_menu setting is true, a hint menu
 --showing these catagories will always been on the HUD
-PD2QC.CATAGORY = {
+PD2QC.CATEGORY = {
     LEFT = "Stealth",
     UP = "General",
     RIGHT = "Loud",
@@ -94,7 +94,7 @@ function PD2QC:RESET()
     PD2QC:RemoveHintPanel()
     DelayedCallsFix:Remove("PD2QCtimeout")
     if(PD2QC.SETTINGS.persistant_menu) then
-        PD2QC:ShowHintPanel(PD2QC.CATAGORY)
+        PD2QC:ShowHintPanel(PD2QC.CATEGORY)
     end
 end
 

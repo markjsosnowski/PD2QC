@@ -10,7 +10,7 @@ PD2QC.KEYBINDS ={
     DOWN = "DOWN"
 }
 
-local function getMinWidth(table)
+local function GetMinWidth(table)
     local min = #table["LEFT"] + #table["RIGHT"] + #PD2QC.KEYBINDS["LEFT"] + #PD2QC.KEYBINDS["RIGHT"]
     if(#table["UP"] > min) then
         min = #table["UP"]
@@ -39,7 +39,7 @@ end
 function PD2QC:CreatePanelFromTable(table)
     local hint_panel_settings = {}
 
-    hint_panel_settings.min_width = getMinWidth(table)
+    hint_panel_settings.min_width = GetMinWidth(table)
     hint_panel_settings.min_height = 90
     hint_panel_settings.padding = 2
     
@@ -81,18 +81,18 @@ function PD2QC:ShowHintPanel(table)
     local hint_panel_settings = PD2QC:CreatePanelFromTable(table)
 
     local layer = tweak_data.gui.DIALOG_LAYER + 100
-    local pd2qc_panel = PD2QC:newPanel(PD2QC:getHudPanel(), "pd2qc_panel", layer)
+    local pd2qc_panel = PD2QC:NewPanel(PD2QC:GetHudPanel(), "pd2qc_panel", layer)
     PD2QC.hint_panel = pd2qc_panel
     layer = layer + 10
-    local pd2qc_container_panel = PD2QC:newPanel(pd2qc_panel, "pd2qc_container_panel", layer)
+    local pd2qc_container_panel = PD2QC:NewPanel(pd2qc_panel, "pd2qc_container_panel", layer)
     layer = layer + 10
-    local pd2qc_bacground_rect = PD2QC:newRect(pd2qc_container_panel, "pd2qc_background_rect", layer, hint_panel_settings.background.color, hint_panel_settings.background.alpha)
+    local pd2qc_bacground_rect = PD2QC:NewRect(pd2qc_container_panel, "pd2qc_background_rect", layer, hint_panel_settings.background.color, hint_panel_settings.background.alpha)
     layer = layer + 10
 
-    hint_panel_settings.text_items[0].text_panel = PD2QC:newText(pd2qc_container_panel, "up", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[0].value, "center", "center","grow")
-    hint_panel_settings.text_items[1].text_panel = PD2QC:newText(pd2qc_container_panel, "left", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[1].value, "left", "grow","grow")
-    hint_panel_settings.text_items[2].text_panel = PD2QC:newText(pd2qc_container_panel, "right", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[2].value, "right", "right","grow")
-    hint_panel_settings.text_items[3].text_panel = PD2QC:newText(pd2qc_container_panel, "down", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[3].value, "center", "center","grow")
+    hint_panel_settings.text_items[0].text_panel = PD2QC:NewText(pd2qc_container_panel, "up", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[0].value, "center", "center","grow")
+    hint_panel_settings.text_items[1].text_panel = PD2QC:NewText(pd2qc_container_panel, "left", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[1].value, "left", "grow","grow")
+    hint_panel_settings.text_items[2].text_panel = PD2QC:NewText(pd2qc_container_panel, "right", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[2].value, "right", "right","grow")
+    hint_panel_settings.text_items[3].text_panel = PD2QC:NewText(pd2qc_container_panel, "down", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[3].value, "center", "center","grow")
 
     pd2qc_container_panel:set_width(hint_panel_settings.min_width + hint_panel_settings.padding)
     pd2qc_container_panel:set_height(hint_panel_settings.min_height + hint_panel_settings.padding)
@@ -105,16 +105,16 @@ end
 
 function PD2QC:RemoveHintPanel()
     if PD2QC.hint_panel ~= nil then
-        PD2QC:getHudPanel():remove(PD2QC.hint_panel)
+        PD2QC:GetHudPanel():remove(PD2QC.hint_panel)
         PD2QC.hint_panel = nil
     end
 end
 
-function PD2QC:getHudPanel()
+function PD2QC:GetHudPanel()
     return managers.hud:script(PlayerBase.PLAYER_INFO_HUD_PD2).panel
 end
 
-function PD2QC:newPanel(panel, name, layer)
+function PD2QC:NewPanel(panel, name, layer)
     local panel_data = {
         name = name,
         layer = layer
@@ -122,7 +122,7 @@ function PD2QC:newPanel(panel, name, layer)
     return panel:panel(panel_data)
 end
 
-function PD2QC:newRect(panel, name, layer, color, alpha)
+function PD2QC:NewRect(panel, name, layer, color, alpha)
     local rect_data= {
         name = name,
         layer = layer,
@@ -133,7 +133,7 @@ function PD2QC:newRect(panel, name, layer, color, alpha)
     return panel:rect(rect_data)
 end
 
-function PD2QC:newText(panel, name, layer, font, font_size, color, text, align, halign, valign)
+function PD2QC:NewText(panel, name, layer, font, font_size, color, text, align, halign, valign)
 	local text_data = {
 		name = name,
 		layer = layer,
