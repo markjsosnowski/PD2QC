@@ -5,7 +5,8 @@
 	"contact": "sl0nderman@gmail.com",
 	"version": "1.0",
 	"image" : "pd2qc.png",
-	"color" : "0.25 0.75 1",
+	"blt_version" : 2,
+	"color" : "64 192 255",
 	"priority": 0,
 	"pre_hooks": [
 		{

@@ -17,9 +17,9 @@ Features
 --------
 Ability to bind the quickchat menus to any key.
 Dynamically coded: easily modify the chat lines in the source to suit your needs.
-A quickchat hint panel so you don't have to memorize each menu (and can be turned off if you don't need it).
+A quickchat hint panel so you don't have to memorize each menu.
 Compatibilty between most popular custom huds and the quickchat hint panel.  
-Plays a relevant voice line when you use each chat (can be turned off).
+(In progress) Plays a relevant voice line when you use each chat.
 
 Requires BLT2.
 Includes Delayed Calls Fix by SNH20. 
