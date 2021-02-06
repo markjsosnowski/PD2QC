@@ -17,8 +17,11 @@ end
 PD2QC.SETTINGS = {
     persistant_menu = false,
     --voices_enabled = false,
-    --0: Vanilla HUD (Lower Left); 1: WolfHUD (Middle Right)
-    --hud_placement = 0
+
+    hud_placement = 1
+    --0: Lower Left (Under chat in Vanilla, PocoHud3)
+    --1: Lower Right (Above chat in WolfHUD)
+    --2: Lower Center (Above the health bar in BL2hud)
 }
 
 --If you wish to change the specific chat messages,
@@ -34,14 +37,14 @@ PD2QC.CHATS = {
     UP={
         LEFT="You get it.",
         UP="I got it.",
-        RIGHT="I'm in trouble!",
+        RIGHT="I found equipment.",
         DOWN="Take hostages."
     },
     RIGHT={
         LEFT="Out of Ammunition!",
         UP="Need Doctor Bag!",
-        RIGHT="Help me kill this!",
-        DOWN="Sniper here, watch out!"
+        RIGHT="Help me!",
+        DOWN="Sniper here!"
     },
     DOWN={
         LEFT="Come here.",
@@ -66,6 +69,7 @@ PD2QC.VOICE ={} --TODO assign each command a relevant voice line
 --Main Script
 PD2QC.PREV = nil
 
+--TODO if persistant_menu, show it at mission start
 --if PD2QC.SETTINGS.persistant_menu and Utils:IsInHeist() then
 --    PD2QC:ShowHintPanel(PD2QC.CATAGORY)
 --end
@@ -80,7 +84,7 @@ function PD2QC:SELECT(direction)
             PD2QC:RemoveHintPanel()
         end
         PD2QC:ShowHintPanel(PD2QC.CHATS[direction])
-        DelayedCallsFix:Add("PD2QCtimeout", 5, function()
+        DelayedCallsFix:Add("PD2QCtimeout", 4, function()
             PD2QC:RESET()
         end)
     end
@@ -97,6 +101,6 @@ end
 
 --For Testing, Not Used. Prints a system message instead of a HUD element of the choices.
 function PD2QC:BETA_HINTPOPUP(chat_table)
-    _hint_message = "[PD2QC]\nUP:" .. chat_table["UP"] .. "\nLEFT:" .. chat_table["LEFT"] .. "\nRIGHT:" .. chat_table["RIGHT"] .. "\nDOWN:" .. chat_table["DOWN"]
+    local _hint_message = "[PD2QC]\nUP:" .. chat_table["UP"] .. "\nLEFT:" .. chat_table["LEFT"] .. "\nRIGHT:" .. chat_table["RIGHT"] .. "\nDOWN:" .. chat_table["DOWN"]
     managers.chat:feed_system_message(ChatManager.GAME, _hint_message)
 end
