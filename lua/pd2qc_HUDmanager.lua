@@ -2,13 +2,25 @@ if not _G.PD2QC then
     dofile(ModPath .. "lua/pd2qc.lua")
 end
 
+local function getMinWith(table)
+    --TODO change this to use a keybind table instead of string literals
+    local min = #table["LEFT"] + #table["RIGHT"] + #"LEFT" + #"RIGHT"
+    if(#table["UP"] > min) then
+        min = #table["UP"]
+    end
+    if(#table["DOWN"] > min) then
+        min = #table["DOWN"]
+    end
+    return (min * 10) - min
+end
+
 function PD2QC:CreatePanelFromTable(table)
     local hint_panel_settings = {}
 
-    hint_panel_settings.min_width = 350
+    hint_panel_settings.min_width = getMinWith(table)
     hint_panel_settings.min_height = 90
     hint_panel_settings.padding = 2
-    hint_panel_settings.center_x = 0.85 --todo
+    hint_panel_settings.center_x = 0.75 --todo
     hint_panel_settings.center_y = 0.70
 
     hint_panel_settings.background = {}
