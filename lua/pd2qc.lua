@@ -15,13 +15,15 @@ end
 
 --These will later be changable in Mod Options
 PD2QC.SETTINGS = {
+    --Always show the catagory selection menu on your HUD
     persistant_menu = false,
-    --voices_enabled = false,
+    --Should voice lines play when using a quickchat?
+    voices_enabled = false,
 
-    hud_placement = 1
     --0: Lower Left (Under chat in Vanilla, PocoHud3)
     --1: Lower Right (Above chat in WolfHUD)
     --2: Lower Center (Above the health bar in BL2hud)
+    hud_placement = 1
 }
 
 --If you wish to change the specific chat messages,
@@ -70,9 +72,6 @@ PD2QC.VOICE ={} --TODO assign each command a relevant voice line
 PD2QC.PREV = nil
 
 --TODO if persistant_menu, show it at mission start
---if PD2QC.SETTINGS.persistant_menu and Utils:IsInHeist() then
---    PD2QC:ShowHintPanel(PD2QC.CATAGORY)
---end
 
 function PD2QC:SELECT(direction)
     if PD2QC.PREV then

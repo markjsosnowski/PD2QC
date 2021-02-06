@@ -11,7 +11,7 @@ PD2QC.KEYBINDS ={
 }
 
 local function getMinWidth(table)
-    local min = #table["LEFT"] + #table["RIGHT"] + #PD2QC.KEYBINDS["LEFT"] + #PD2QC.KEYBINDS["RIGHT"] 
+    local min = #table["LEFT"] + #table["RIGHT"] + #PD2QC.KEYBINDS["LEFT"] + #PD2QC.KEYBINDS["RIGHT"]
     if(#table["UP"] > min) then
         min = #table["UP"]
     end
@@ -25,7 +25,7 @@ end
 if (PD2QC.SETTINGS["hud_placement"] == 0) then
     PD2QC._center_x = 0.15
     PD2QC._center_y = 0.9
-elseif (PD2QC.SETTINGS["hud_placement"]== 1) then
+elseif (PD2QC.SETTINGS["hud_placement"] == 1) then
     PD2QC._center_x = 0.85
     PD2QC._center_y = 0.70
 elseif (PD2QC.SETTINGS["hud_placement"] == 2) then
@@ -50,10 +50,8 @@ function PD2QC:CreatePanelFromTable(table)
     hint_panel_settings.background.alpha = 0.75
     hint_panel_settings.background.color = Color.black
     hint_panel_settings.background.layer = 1
-
-    hint_panel_settings.text = {}
     
-    hint_panel_settings.text= {}
+    hint_panel_settings.text = {}
     hint_panel_settings.text.font = tweak_data.hud_present.text_font
     hint_panel_settings.text.size = math.floor(tweak_data.hud_present.text_size/1.5)
     hint_panel_settings.text.color = Color.white
@@ -90,19 +88,12 @@ function PD2QC:ShowHintPanel(table)
     layer = layer + 10
     local pd2qc_bacground_rect = PD2QC:newRect(pd2qc_container_panel, "pd2qc_background_rect", layer, hint_panel_settings.background.color, hint_panel_settings.background.alpha)
     layer = layer + 10
-    --local pd2qc_padding_panel = PD2QC:newPanel(pd2qc_container_panel, "pd2qc_padding_panel", layer)
-    --layer = layer + 10
 
-    --TODO header?
     hint_panel_settings.text_items[0].text_panel = PD2QC:newText(pd2qc_container_panel, "up", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[0].value, "center", "center","grow")
     hint_panel_settings.text_items[1].text_panel = PD2QC:newText(pd2qc_container_panel, "left", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[1].value, "left", "grow","grow")
     hint_panel_settings.text_items[2].text_panel = PD2QC:newText(pd2qc_container_panel, "right", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[2].value, "right", "right","grow")
     hint_panel_settings.text_items[3].text_panel = PD2QC:newText(pd2qc_container_panel, "down", layer, hint_panel_settings.text.font, hint_panel_settings.text.size, hint_panel_settings.text.color, hint_panel_settings.text_items[3].value, "center", "center","grow")
 
-    --TODO reimplement padding layer so it looks pretty?
-    --pd2qc_padding_panel:set_width(hint_panel_settings.min_width)
-    --pd2qc_padding_panel:set_height(hint_panel_settings.min_height)
-    --pd2qc_padding_panel:set_center_x(math.floor())
     pd2qc_container_panel:set_width(hint_panel_settings.min_width + hint_panel_settings.padding)
     pd2qc_container_panel:set_height(hint_panel_settings.min_height + hint_panel_settings.padding)
 
@@ -110,9 +101,6 @@ function PD2QC:ShowHintPanel(table)
     local centerY = math.floor(pd2qc_panel:height() * hint_panel_settings.center_y)
     pd2qc_container_panel:set_center_x(centerX)
     pd2qc_container_panel:set_center_y(centerY)
-
-    --pd2qc_padding_panel:set_left(hint_panel_settings.padding)
-    --pd2qc_padding_panel:set_top(hint_panel_settings.padding)
 end
 
 function PD2QC:RemoveHintPanel()
