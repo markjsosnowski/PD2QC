@@ -40,7 +40,7 @@ function PD2QC:CreatePanelFromTable(table)
     local hint_panel_settings = {}
 
     hint_panel_settings.min_width = GetMinWidth(table)
-    hint_panel_settings.min_height = 90
+    hint_panel_settings.min_height = 95
     hint_panel_settings.padding = 2
     
     hint_panel_settings.center_x = PD2QC._center_x
@@ -73,7 +73,7 @@ function PD2QC:CreatePanelFromTable(table)
     hint_panel_settings.text_items[2] = {}
     hint_panel_settings.text_items[2].value = "\n\n[" .. PD2QC.KEYBINDS["RIGHT"] .. "] " .. table["RIGHT"]
     hint_panel_settings.text_items[3] = {}
-    hint_panel_settings.text_items[3].value= "\n\n\n[" .. PD2QC.KEYBINDS["UP"] .. "]\n" .. table["DOWN"]
+    hint_panel_settings.text_items[3].value= "\n\n\n[" .. PD2QC.KEYBINDS["DOWN"] .. "]\n" .. table["DOWN"]
     return hint_panel_settings
 end
 
