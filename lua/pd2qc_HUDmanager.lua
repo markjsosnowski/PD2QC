@@ -40,7 +40,7 @@ function PD2QC:CreatePanelFromTable(table)
     local hint_panel_settings = {}
 
     hint_panel_settings.min_width = GetMinWidth(table)
-    hint_panel_settings.min_height = 95
+    hint_panel_settings.min_height = 100
     hint_panel_settings.padding = 2
     
     hint_panel_settings.center_x = PD2QC._center_x
