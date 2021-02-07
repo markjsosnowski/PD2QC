@@ -23,7 +23,7 @@ PD2QC.SETTINGS = {
     --0: Lower Left (Under chat in Vanilla, PocoHud3)
     --1: Lower Right (Above chat in WolfHUD)
     --2: Lower Center (Above the health bar in BL2hud)
-    hud_placement = 1
+    hud_placement = 0
 }
 
 --If you wish to change the specific chat messages,
