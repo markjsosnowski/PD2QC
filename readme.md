@@ -28,5 +28,26 @@ Features
 
 •(In progress) Plays a relevant voice line when you use each chat.
 
+Installation
+-------------
 **Requires BLT2.**
-Includes Delayed Calls Fix by SNH20. 
+
+*Includes Delayed Calls Fix by SNH20.*
+
+1. Open your Payday 2 "mods" folder.
+
+2. Create a new folder called "PD2QC".
+
+3. Place all files in the "PD2QC" folder.
+
+4. Start the game and assign keybinds in Options->Mod Keybinds
+
+Customizing
+-----------
+You can customize certain things about the mod without knowledge of lua coding. 
+In the main pd2qc.lua file, you can change the chat text by altering the quoted lines in the 
+PD2QC.CHATS table. You can also move the posistion of the HUD popup by modifying the number 
+next to hud_posistions in the PD2QC.SETTINGS table. You can use this so that the popup will not 
+interfere with your custom HUD.
+
+*In a future update, these settings should be avalible via the in-game mod options menu.*
