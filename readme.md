@@ -34,13 +34,9 @@ Installation
 
 *Includes Delayed Calls Fix by SNH20.*
 
-1. Open your Payday 2 "mods" folder.
+1. Extract "PD2QC-master" folder from the .zip into to your Payday 2 mods folder. 
 
-2. Create a new folder called "PD2QC".
-
-3. Place all files in the "PD2QC" folder.
-
-4. Start the game and assign keybinds in Options->Mod Keybinds
+2. Start the game and assign keybinds in Options->Mod Keybinds
 
 Customizing
 -----------
