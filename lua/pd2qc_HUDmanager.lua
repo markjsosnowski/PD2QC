@@ -40,7 +40,7 @@ function PD2QC:CreatePanelFromTable(table)
     local hint_panel_settings = {}
 
     hint_panel_settings.min_width = GetMinWidth(table)
-    hint_panel_settings.min_height = 100.0
+    hint_panel_settings.min_height = 100
     hint_panel_settings.padding = 5
     
     hint_panel_settings.center_x = PD2QC._center_x
@@ -104,7 +104,7 @@ function PD2QC:ShowHintPanel(table)
 end
 
 function PD2QC:RemoveHintPanel()
-    if PD2QC.hint_panel ~= nil then
+    if PD2QC.hint_panel then
         PD2QC:GetHudPanel():remove(PD2QC.hint_panel)
         PD2QC.hint_panel = nil
     end
@@ -126,7 +126,7 @@ function PD2QC:NewRect(panel, name, layer, color, alpha)
     local rect_data= {
         name = name,
         layer = layer,
-        visible = true, 
+        visible = true,
         color = color,
         alpha = alpha
     }
@@ -145,7 +145,7 @@ function PD2QC:NewText(panel, name, layer, font, font_size, color, text, align, 
 		word_wrap = false,
 		align = align,
 		halign = halign,
-		valign = valign 
+		valign = valign
     }
     return panel:text(text_data)
 end
