@@ -2,23 +2,26 @@ if not _G.PD2QC then
     dofile(ModPath .. "lua/pd2qc.lua")
 end
 
---TODO make a function that gets the actual bound keys here
-PD2QC.KEYBINDS ={
-    LEFT = "LEFT",
-    UP = "UP",
-    RIGHT = "RIGHT",
-    DOWN = "DOWN"
-}
+local function GetKeybind(id)
+    local nb = "Not Bound"
+    local bind = BLT.Keybinds:get_keybind(id)
+    if bind ~= nil then
+        return tostring(bind:Key())
+    else
+        return nb
+    end
+end
 
 local function GetMinWidth(table)
-    local min = #table["LEFT"] + #table["RIGHT"] + #PD2QC.KEYBINDS["LEFT"] + #PD2QC.KEYBINDS["RIGHT"] + math.abs(#table["LEFT"] - #table["RIGHT"])
+    local min = #table["LEFT"] + #table["RIGHT"] + #GetKeybind("pd2qc_left") + #GetKeybind("pd2qc_right") +
+        math.abs(#table["LEFT"] - #table["RIGHT"])
     if(#table["UP"] > min) then
         min = #table["UP"]
     end
     if(#table["DOWN"] > min) then
         min = #table["DOWN"]
     end
-    return (min * 8)
+    return (min * 7.5)
 end
 
 --HUD Placement Settings
@@ -67,13 +70,13 @@ function PD2QC:CreatePanelFromTable(table)
     --└──────────────────────────────────────────┘
     hint_panel_settings.text_items = {}
     hint_panel_settings.text_items[0] = {}
-    hint_panel_settings.text_items[0].value = table["UP"] .. "\n[" .. PD2QC.KEYBINDS["UP"] .. "]"
+    hint_panel_settings.text_items[0].value = table["UP"] .. "\n[" .. GetKeybind("pd2qc_up") .. "]"
     hint_panel_settings.text_items[1] = {}
-    hint_panel_settings.text_items[1].value = "\n\n" .. table["LEFT"] .. " [" .. PD2QC.KEYBINDS["LEFT"] .. "]"
+    hint_panel_settings.text_items[1].value = "\n\n" .. table["LEFT"] .. " [" .. GetKeybind("pd2qc_left").. "]"
     hint_panel_settings.text_items[2] = {}
-    hint_panel_settings.text_items[2].value = "\n\n[" .. PD2QC.KEYBINDS["RIGHT"] .. "] " .. table["RIGHT"]
+    hint_panel_settings.text_items[2].value = "\n\n[" .. GetKeybind("pd2qc_right") .. "] " .. table["RIGHT"]
     hint_panel_settings.text_items[3] = {}
-    hint_panel_settings.text_items[3].value= "\n\n\n[" .. PD2QC.KEYBINDS["DOWN"] .. "]\n" .. table["DOWN"]
+    hint_panel_settings.text_items[3].value= "\n\n\n[" .. GetKeybind("pd2qc_down") .. "]\n" .. table["DOWN"]
     return hint_panel_settings
 end
 
