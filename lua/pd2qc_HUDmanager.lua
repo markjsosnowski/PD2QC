@@ -23,7 +23,7 @@ end
 
 --HUD Placement Settings
 if (PD2QC.SETTINGS["hud_placement"] == 0) then
-    PD2QC._center_x = 0.15
+    PD2QC._center_x = 0.2
     PD2QC._center_y = 0.9
 elseif (PD2QC.SETTINGS["hud_placement"] == 1) then
     PD2QC._center_x = 0.85
