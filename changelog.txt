@@ -1,7 +1,9 @@
 1.1---------
-*Better looking HUD
-*Mod will not accept inputs in pause menu
+--DONE
+*Hud has better size adjustment
 *Custom keybinds are shown in HUD
+--IN PROGRESS
+*Mod will not accept inputs in pause menu
 
 1.0---------
 *First release version 

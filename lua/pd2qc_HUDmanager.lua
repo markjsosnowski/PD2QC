@@ -13,8 +13,8 @@ local function GetKeybind(id)
 end
 
 local function GetMinWidth(table)
-    local min = #table["LEFT"] + #table["RIGHT"] + #GetKeybind("pd2qc_left") + #GetKeybind("pd2qc_right") +
-        math.abs(#table["LEFT"] - #table["RIGHT"])
+    local min = #table["LEFT"] + #table["RIGHT"] + #GetKeybind("pd2qc_left") + #GetKeybind("pd2qc_right")
+        - (math.abs(#table["LEFT"] - #table["RIGHT"]) / 2)
     if(#table["UP"] > min) then
         min = #table["UP"]
     end
