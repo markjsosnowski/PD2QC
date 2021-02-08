@@ -1,0 +1,6 @@
+1.0---------
+*First release version 
+*16 unique messages 
+*Custom keybind support
+*Dynamically created HUD popup
+*3 different HUD layouts

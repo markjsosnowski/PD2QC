@@ -30,7 +30,7 @@ Features
 
 Installation
 -------------
-**Requires BLT2.**
+**Requires SuperBLT.**
 
 *Includes Delayed Calls Fix by SNH20.*
 
@@ -49,4 +49,12 @@ Use a custom HUD? You can change the posistion of PD2QC's HUD window by editing 
 In the PD2QC.SETTINGS table, there is a setting called "hud_placement" followed by a number.
 Change it to whichever fits your custom hud best: 0 is on the left, 1 is on the right, and 2 is in the middle.
 
-*In a future update, these settings should be avalible via the in-game mod options menu.*
+Planned Updates
+---------------
+• Localization support
+• Custom Keybinds Shown In HUD 
+• Mod options menu in game for settings like HUD posistion
+• Character Voice Lines 
+• Automatic Updater
+• VR Support
+
