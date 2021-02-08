@@ -11,7 +11,7 @@ PD2QC.KEYBINDS ={
 }
 
 local function GetMinWidth(table)
-    local min = #table["LEFT"] + #table["RIGHT"] + #PD2QC.KEYBINDS["LEFT"] + #PD2QC.KEYBINDS["RIGHT"]
+    local min = #table["LEFT"] + #table["RIGHT"] + #PD2QC.KEYBINDS["LEFT"] + #PD2QC.KEYBINDS["RIGHT"] + math.abs(#table["LEFT"] - #table["RIGHT"])
     if(#table["UP"] > min) then
         min = #table["UP"]
     end
