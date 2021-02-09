@@ -3,7 +3,7 @@
 	"description": "Send 16 unique messages quickly with keybinds instead of typing or clunky menus.",
 	"author": "sl0nderman & fooksie",
 	"contact": "sl0nderman@gmail.com",
-	"version": "1.0",
+	"version": "1.1",
 	"image" : "pd2qc.png",
 	"blt_version" : 2,
 	"color" : "64 192 255",
