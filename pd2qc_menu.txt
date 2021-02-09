@@ -1,0 +1,52 @@
+{
+    "menu_id" : "pd2qc_options",
+    "parent_menu_id" : "blt_options",
+    "title" : "PD2QC Quickchat Mod",
+    "description" : "Settings for PD2QC",
+    "items" : [
+        {
+            "type" : "multiple_choice",
+            "id" : "pd2qc_menu_hudpos",
+            "title" : "HUD_Posistion",
+            "description" : "Select the option that best aligns with your custom HUD.",
+            "callback" : "pd2qc_callback_hudpos",
+            "items" : [
+                "Vanilla",
+                "WolfHUD",
+                "BL2HUD"
+            ],
+            "value" : "pd2qc_hudpos",
+            "default_value" : 1
+        },
+        {
+            "type" : "toggle",
+            "id" : "pd2qc_menu_persist",
+            "title" : "Persistant HUD",
+            "description" : "If checked, the quickchat HUD will stay on the screen.",
+            "callback" : "pd2qc_callback_persist",
+            "value" : "pd2qc_persist",
+            "default_value" : false
+        },
+        {
+            "type" : "slider",
+            "id" : "pd2qc_menu_timeout",
+            "title" : "Timeout Delay",
+            "description" : "How long you have to select an option after picking a catagory.",
+            "callback" : "pd2qc_callback_timeout",
+            "value" : "pd2qc_timeout",
+            "default_value" : 5,
+            "max" : 10,
+            "min" : 1,
+            "step" : 1
+        },
+        {
+            "type" : "toggle",
+            "id" : "pd2qc_menu_voicelines",
+            "title" : "Voicelines",
+            "description" : "Coming later.",
+            "callback" : "pd2qc_callback_voice",
+            "value" : "pd2qc_voice",
+            "default_value" : false
+        }
+    ]
+}

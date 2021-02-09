@@ -24,7 +24,7 @@ local function GetMinWidth(table)
     return (min * 7.5)
 end
 
---HUD Placement Settings
+--[[HUD Placement Settings
 if (PD2QC.SETTINGS["hud_placement"] == 0) then
     PD2QC._center_x = 0.2
     PD2QC._center_y = 0.9
@@ -38,16 +38,27 @@ else
     PD2QC._center_x = 0.15
     PD2QC._center_y = 0.9
 end
+]]
+
+local function GetHUDPos()
+    if PD2QC._settings.hud_placement == 1 then
+        return 0.2, 0.9
+    elseif PD2QC._settings.hud_placement == 2 then
+        return 0.85, 0.7
+    elseif PD2QC._settings.hud_placement == 3 then
+        return 0.5, 0.8
+    end
+    return 0.2, 0.9
+end
 
 function PD2QC:CreatePanelFromTable(table)
     local hint_panel_settings = {}
 
     hint_panel_settings.min_width = GetMinWidth(table)
-    hint_panel_settings.min_height = 97.5
+    hint_panel_settings.min_height = 96
     hint_panel_settings.padding = 5
     
-    hint_panel_settings.center_x = PD2QC._center_x
-    hint_panel_settings.center_y = PD2QC._center_y
+    hint_panel_settings.center_x, hint_panel_settings.center_y = GetHUDPos()
 
     hint_panel_settings.background = {}
     hint_panel_settings.background.alpha = 0.75

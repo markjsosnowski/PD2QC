@@ -2,7 +2,12 @@
 if not _G.PD2QC then
     _G.PD2QC = {}
     dofile(ModPath .. "lua/pd2qc_HUDmanager.lua")
-    PD2QC.VERSION = "0.1"
+    dofile(ModPath .. "lua/pd2qc_menumanager.lua")
+    PD2QC.VERSION = "1.1"
+    PD2QC._path = ModPath
+    PD2QC._settings_path = SavePath .. "pd2qc_settings.txt"
+    PD2QC._settings = {}
+    PD2QC._paused = false
 end
 
 if not _G.DelayedCallsFix then
@@ -12,20 +17,6 @@ end
 --IF YOU DON'T KNOW WHAT YOU ARE DOING
 --ONLY CHANGE THINGS INSIDE THIS BOX
 --───────────────────────────────────────────────────────────┐
-
---These will later be changable in Mod Options
-PD2QC.SETTINGS = {
-    --Always show the CATEGORY selection menu on your HUD
-    persistant_menu = false,
-    --Should voice lines play when using a quickchat?
-    voices_enabled = false,
-
-    --0: Lower Left (Under chat in Vanilla, PocoHud3)
-    --1: Lower Right (Above chat in WolfHUD)
-    --2: Lower Center (Above the health bar in BL2hud)
-    hud_placement = 0
-}
-
 --If you wish to change the specific chat messages,
 --do so in this table and only in this table.
 --Everything else will be changed automatically.
@@ -79,11 +70,9 @@ function PD2QC:SELECT(direction)
         PD2QC:RESET()
     else
         PD2QC.PREV = direction
-        if PD2QC.SETTINGS.persistant_menu then
-            PD2QC:RemoveHintPanel()
-        end
+        PD2QC:RemoveHintPanel()
         PD2QC:ShowHintPanel(PD2QC.CHATS[direction])
-        DelayedCallsFix:Add("PD2QCtimeout", 4, function()
+        DelayedCallsFix:Add("PD2QCtimeout", PD2QC._settings.timeout, function()
             PD2QC:RESET()
         end)
     end
@@ -93,7 +82,7 @@ function PD2QC:RESET()
     PD2QC.PREV = nil
     PD2QC:RemoveHintPanel()
     DelayedCallsFix:Remove("PD2QCtimeout")
-    if(PD2QC.SETTINGS.persistant_menu) then
+    if(PD2QC._settings.persist) then
         PD2QC:ShowHintPanel(PD2QC.CATEGORY)
     end
 end

@@ -22,6 +22,10 @@
 		{
 			"hook_id": "lib/managers/hudmanager",
 			"script_path":	"lua/pd2qc_HUDmanager.lua"
+		},
+		{
+			"hook_id" : "lib/managers/menumanager",
+			"script_path": "lua/pd2qc_menumanager.lua"
 		}
 	],
 	"keybinds": [
