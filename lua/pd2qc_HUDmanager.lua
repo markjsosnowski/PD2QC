@@ -163,3 +163,14 @@ function PD2QC:NewText(panel, name, layer, font, font_size, color, text, align, 
     }
     return panel:text(text_data)
 end
+
+--Hides the HUD when the pause menu (ESC) is opened
+Hooks:PreHook(MenuPauseRenderer, "open", "pd2qc_pause_open", function()
+    DelayedCallsFix:Remove("PD2QCtimeout")
+    PD2QC._paused = true
+    PD2QC:RESET()
+end)
+
+Hooks:PreHook(MenuPauseRenderer, "close", "pd2qc_pause_close", function()
+    PD2QC._paused = false
+end)

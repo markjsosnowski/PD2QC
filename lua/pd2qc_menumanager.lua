@@ -44,15 +44,3 @@ Hooks:Add("MenuManagerInitialize", "InitPD2QCMenu", function(menu_manager)
     MenuHelper:LoadFromJsonFile(PD2QC._path .. "pd2qc_menu.txt", PD2QC, PD2QC._settings)
 
 end)
-
---[[Hides the HUD when the pause menu (ESC) is opened
-Hooks:PreHook(MenuPauseRenderer, "open", "pd2qc_pause_open", function()
-    DelayedCallsFix:Remove("PD2QCtimeout")
-    PD2QC._paused = true
-    PD2QC:RESET()
-end)
-
-Hooks:PreHook(MenuPauseRenderer, "close", "pd2qc_pause_close", function()
-    PD2QC._paused = false
-end)
-]]
