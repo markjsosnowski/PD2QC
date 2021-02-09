@@ -1,8 +1,8 @@
 --Setup
 if not _G.PD2QC then
     _G.PD2QC = {}
-    dofile(ModPath .. "lua/pd2qc_HUDmanager.lua")
-    dofile(ModPath .. "lua/pd2qc_menumanager.lua")
+    dofile(ModPath .. "lua/pd2qc_hud.lua")
+    dofile(ModPath .. "lua/pd2qc_menu.lua")
     PD2QC.VERSION = "1.1"
     PD2QC._path = ModPath
     PD2QC._settings_path = SavePath .. "pd2qc_settings.txt"
