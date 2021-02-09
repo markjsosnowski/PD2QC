@@ -14,7 +14,7 @@ end
 
 local function GetMinWidth(table)
     local min = #table["LEFT"] + #table["RIGHT"] + #GetKeybind("pd2qc_left") + #GetKeybind("pd2qc_right")
-        - (math.max(#table["LEFT"], #table["RIGHT"]) / 2)
+        - (math.max(#table["LEFT"], #table["RIGHT"]) / 4)
     if(#table["UP"] > min) then
         min = #table["UP"]
     end
