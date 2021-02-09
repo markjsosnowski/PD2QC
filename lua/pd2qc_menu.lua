@@ -38,6 +38,7 @@ function PD2QC:LoadSettings()
         PD2QC._settings.language = 1
     end
     PD2QC:SetLanguage(PD2QC._settings.language)
+    MenuHelper:LoadFromJsonFile(PD2QC._path .. "pd2qc_menu.txt", PD2QC, PD2QC._settings)
 end
 
 Hooks:Add("MenuManagerInitialize", "InitPD2QCMenu", function(menu_manager)
@@ -68,6 +69,4 @@ Hooks:Add("MenuManagerInitialize", "InitPD2QCMenu", function(menu_manager)
     end
     
     PD2QC:LoadSettings()
-    MenuHelper:LoadFromJsonFile(PD2QC._path .. "pd2qc_menu.txt", PD2QC, PD2QC._settings)
-
 end)
