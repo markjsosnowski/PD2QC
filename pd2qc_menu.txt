@@ -6,14 +6,28 @@
     "items" : [
         {
             "type" : "multiple_choice",
+            "id" : "pd2qc_menu_lang",
+            "title" : "Language",
+            "description" : "Requires restart.",
+            "callback" : "pd2qc_callback_lang",
+            "items" : [
+                "pd2qc_option_english",
+                "pd2qc_option_spanish",
+                "pd2qc_option_silly"
+            ],
+            "value" : "pd2qc_lang",
+            "default_value" : 1
+        },
+        {
+            "type" : "multiple_choice",
             "id" : "pd2qc_menu_hudpos",
             "title" : "HUD Posistion",
             "description" : "Select the option that best aligns with your custom HUD.",
             "callback" : "pd2qc_callback_hudpos",
             "items" : [
-                "Vanilla",
-                "WolfHUD",
-                "BL2HUD"
+                "pd2qc_option_vanillahud",
+                "pd2qc_option_wolfhud",
+                "pd2qc_option_bl2hud"
             ],
             "value" : "pd2qc_hudpos",
             "default_value" : 1

@@ -7,9 +7,6 @@ if not _G.PD2QC then
     PD2QC._path = ModPath
     PD2QC._settings_path = SavePath .. "pd2qc_settings.txt"
     PD2QC._settings = {}
-    PD2QC._settings.timeout = 5
-    PD2QC._settings.pausable = true
-    PD2QC._paused = false
     PD2QC:LoadSettings()
 end
 
@@ -17,18 +14,14 @@ if not _G.DelayedCallsFix then
     dofile(ModPath .. "lua/delayed_calls.lua")
 end
 
---IF YOU DON'T KNOW WHAT YOU ARE DOING
---ONLY CHANGE THINGS INSIDE THIS BOX
---───────────────────────────────────────────────────────────┐
---If you wish to change the specific chat messages,
---do so in this table and only in this table.
---Everything else will be changed automatically.
+--If you want to change the chat message,
+--do it in the localization file, not here.
 PD2QC.CHATS = {
     LEFT={
-        LEFT="Answer this pager.",
-        UP="Use your ECM now!!",
-        RIGHT="Bag this body.",
-        DOWN="Watch out!"
+        LEFT="pd2qc_left_left",
+        UP="pd2qc_left_up",
+        RIGHT="pd2qc_left_right",
+        DOWN="pd2qc_left_down"
     },
     UP={
         LEFT="You get it.",
@@ -50,15 +43,12 @@ PD2QC.CHATS = {
     }
 }
 
---When the persistant_menu setting is true, a hint menu
---showing these catagories will always been on the HUD
 PD2QC.CATEGORY = {
     LEFT = "Stealth",
     UP = "General",
     RIGHT = "Loud",
     DOWN = "Orders"
 }
---───────────────────────────────────────────────────────────┘
 
 PD2QC.VOICE ={} --TODO assign each command a relevant voice line
 
