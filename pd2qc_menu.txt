@@ -29,7 +29,7 @@
                 "pd2qc_option_wolfhud",
                 "pd2qc_option_bl2hud"
             ],
-            "value" : "pd2qc_hudpos",
+            "value" : "hud_placement",
             "default_value" : 1
         },
         {
@@ -38,7 +38,7 @@
             "title" : "pd2qc_menu_pausable_title",
             "description" :"pd2qc_menu_pausable_desc",
             "callback" : "pd2qc_callback_pausable",
-            "value" : "pd2qc_pausable",
+            "value" : "pausable",
             "default_value" : true
         },
         {
@@ -47,7 +47,7 @@
             "title" : "pd2qc_menu_persist_title",
             "description" : "pd2qc_menu_persist_desc",
             "callback" : "pd2qc_callback_persist",
-            "value" : "pd2qc_persist",
+            "value" : "persist",
             "default_value" : false
         },
         {
@@ -56,7 +56,7 @@
             "title" : "pd2qc_menu_timeout_title",
             "description" : "pd2qc_menu_timeout_desc",
             "callback" : "pd2qc_callback_timeout",
-            "value" : "pd2qc_timeout",
+            "value" : "timeout",
             "default_value" : 5,
             "max" : 10,
             "min" : 1,
@@ -68,7 +68,7 @@
             "title" : "pd2qc_menu_voice_title",
             "description" : "pd2qc_menu_voice_desc",
             "callback" : "pd2qc_callback_voice",
-            "value" : "pd2qc_voice",
+            "value" : "voice",
             "default_value" : false
         }
     ]

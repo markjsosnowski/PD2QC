@@ -6,6 +6,7 @@ if not _G.PD2QC then
     PD2QC.VERSION = "1.1"
     PD2QC._path = ModPath
     PD2QC._settings_path = SavePath .. "pd2qc_settings.txt"
+    PD2QC._paused = false
     PD2QC._settings = {}
     PD2QC:LoadSettings()
 end

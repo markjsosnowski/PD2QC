@@ -26,7 +26,7 @@ function PD2QC:SaveSettings()
 end
 
 function PD2QC:LoadSettings()
-    local file = io.open(self._settings_path, "r")
+    local file = io.open(PD2QC._settings_path, "r")
     if file then
         self._settings = json.decode(file:read("*all"))
         file:close()
@@ -34,11 +34,10 @@ function PD2QC:LoadSettings()
         PD2QC._settings.hud_placement = 1
         PD2QC._settings.timeout = 5
         PD2QC._settings.pausable = true
-        PD2QC._paused = false
         PD2QC._settings.language = 1
+        PD2QC._settings.persist = false
     end
     PD2QC:SetLanguage(PD2QC._settings.language)
-    MenuHelper:LoadFromJsonFile(PD2QC._path .. "pd2qc_menu.txt", PD2QC, PD2QC._settings)
 end
 
 Hooks:Add("MenuManagerInitialize", "InitPD2QCMenu", function(menu_manager)
@@ -69,4 +68,5 @@ Hooks:Add("MenuManagerInitialize", "InitPD2QCMenu", function(menu_manager)
     end
     
     PD2QC:LoadSettings()
+    MenuHelper:LoadFromJsonFile(PD2QC._path .. "pd2qc_menu.txt", PD2QC, PD2QC._settings)
 end)
