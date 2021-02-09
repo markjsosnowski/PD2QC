@@ -158,4 +158,7 @@ end)
 
 Hooks:PreHook(MenuPauseRenderer, "close", "pd2qc_pause_close", function()
     PD2QC._paused = false
+    if(PD2QC._settings.persist) then
+        PD2QC:ShowHintPanel(PD2QC.CATEGORY)
+    end
 end)

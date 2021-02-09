@@ -76,7 +76,7 @@ function PD2QC:RESET()
     PD2QC.PREV = nil
     PD2QC:RemoveHintPanel()
     DelayedCallsFix:Remove("PD2QCtimeout")
-    if(PD2QC._settings.persist) then
+    if(PD2QC._settings.persist and not (PD2QC._settings.pausable and PD2QC._paused)) then
         PD2QC:ShowHintPanel(PD2QC.CATEGORY)
     end
 end
