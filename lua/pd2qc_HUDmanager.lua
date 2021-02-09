@@ -14,7 +14,7 @@ end
 
 local function GetMinWidth(table)
     local min = #table["LEFT"] + #table["RIGHT"] + #GetKeybind("pd2qc_left") + #GetKeybind("pd2qc_right")
-        - (math.abs(#table["LEFT"] - #table["RIGHT"]) / 2)
+        - (math.max(#table["LEFT"], #table["RIGHT"]) / 2)
     if(#table["UP"] > min) then
         min = #table["UP"]
     end
@@ -23,22 +23,6 @@ local function GetMinWidth(table)
     end
     return (min * 7.5)
 end
-
---[[HUD Placement Settings
-if (PD2QC.SETTINGS["hud_placement"] == 0) then
-    PD2QC._center_x = 0.2
-    PD2QC._center_y = 0.9
-elseif (PD2QC.SETTINGS["hud_placement"] == 1) then
-    PD2QC._center_x = 0.85
-    PD2QC._center_y = 0.70
-elseif (PD2QC.SETTINGS["hud_placement"] == 2) then
-    PD2QC._center_x = 0.5
-    PD2QC._center_y = 0.8
-else
-    PD2QC._center_x = 0.15
-    PD2QC._center_y = 0.9
-end
-]]
 
 local function GetHUDPos()
     if PD2QC._settings.hud_placement == 1 then
@@ -166,8 +150,8 @@ end
 
 --Hides the HUD when the pause menu (ESC) is opened
 Hooks:PreHook(MenuPauseRenderer, "open", "pd2qc_pause_open", function()
+    PD2QC._paused = true
     if PD2QC._settings.pausable then
-        PD2QC._paused = true
         PD2QC:RESET()
     end
 end)
