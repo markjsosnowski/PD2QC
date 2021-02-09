@@ -1,14 +1,14 @@
 {
     "menu_id" : "pd2qc_options",
     "parent_menu_id" : "blt_options",
-    "title" : "PD2QC Quickchat Mod",
-    "description" : "Settings for PD2QC",
+    "title" : "pd2qc_menu_title",
+    "description" : "pd2qc_menu_desc",
     "items" : [
         {
             "type" : "multiple_choice",
             "id" : "pd2qc_menu_lang",
-            "title" : "Language",
-            "description" : "Requires restart.",
+            "title" : "pd2qc_menu_lang_title",
+            "description" : "pd2qc_menu_lang_desc",
             "callback" : "pd2qc_callback_lang",
             "items" : [
                 "pd2qc_option_english",
@@ -21,8 +21,8 @@
         {
             "type" : "multiple_choice",
             "id" : "pd2qc_menu_hudpos",
-            "title" : "HUD Posistion",
-            "description" : "Select the option that best aligns with your custom HUD.",
+            "title" : "pd2qc_menu_hudpos_title",
+            "description" : "pd2qc_menu_hudpos_desc",
             "callback" : "pd2qc_callback_hudpos",
             "items" : [
                 "pd2qc_option_vanillahud",
@@ -35,8 +35,8 @@
         {
             "type" : "toggle",
             "id" : "pd2qc_menu_pausable",
-            "title" : "Disable in pause menu.",
-            "description" : "If checked, the mod will be disabled when in the pause menu.",
+            "title" : "pd2qc_menu_pausable_title",
+            "description" :"pd2qc_menu_pausable_desc",
             "callback" : "pd2qc_callback_pausable",
             "value" : "pd2qc_pausable",
             "default_value" : true
@@ -44,8 +44,8 @@
         {
             "type" : "toggle",
             "id" : "pd2qc_menu_persist",
-            "title" : "Persistant HUD",
-            "description" : "If checked, the quickchat HUD will stay on the screen.",
+            "title" : "pd2qc_menu_persist_title",
+            "description" : "pd2qc_menu_persist_desc",
             "callback" : "pd2qc_callback_persist",
             "value" : "pd2qc_persist",
             "default_value" : false
@@ -53,8 +53,8 @@
         {
             "type" : "slider",
             "id" : "pd2qc_menu_timeout",
-            "title" : "Timeout Delay",
-            "description" : "How long you have to select an option after picking a catagory.",
+            "title" : "pd2qc_menu_timeout_title",
+            "description" : "pd2qc_menu_timeout_desc",
             "callback" : "pd2qc_callback_timeout",
             "value" : "pd2qc_timeout",
             "default_value" : 5,
@@ -65,8 +65,8 @@
         {
             "type" : "toggle",
             "id" : "pd2qc_menu_voicelines",
-            "title" : "Voicelines",
-            "description" : "Coming later.",
+            "title" : "pd2qc_menu_voice_title",
+            "description" : "pd2qc_menu_voice_desc",
             "callback" : "pd2qc_callback_voice",
             "value" : "pd2qc_voice",
             "default_value" : false
