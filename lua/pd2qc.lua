@@ -7,7 +7,10 @@ if not _G.PD2QC then
     PD2QC._path = ModPath
     PD2QC._settings_path = SavePath .. "pd2qc_settings.txt"
     PD2QC._settings = {}
+    PD2QC._settings.timeout = 5
+    PD2QC._settings.pausable = true
     PD2QC._paused = false
+    PD2QC:LoadSettings()
 end
 
 if not _G.DelayedCallsFix then

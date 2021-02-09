@@ -36,7 +36,11 @@ Hooks:Add("MenuManagerInitialize", "InitPD2QCMenu", function(menu_manager)
         PD2QC:SaveSettings()
     end
     MenuCallbackHandler.pd2qc_callback_voice = function (self, item)
-        PD2QC._settings.voice = item:value()
+        PD2QC._settings.voice = (item:value() == "on" and true or false)
+        PD2QC:SaveSettings()
+    end
+    MenuCallbackHandler.pd2qc_callback_pausable = function (self, item)
+        PD2QC._settings.pausable = (item:value() == "on" and true or false)
         PD2QC:SaveSettings()
     end
 

@@ -7,7 +7,7 @@
         {
             "type" : "multiple_choice",
             "id" : "pd2qc_menu_hudpos",
-            "title" : "HUD_Posistion",
+            "title" : "HUD Posistion",
             "description" : "Select the option that best aligns with your custom HUD.",
             "callback" : "pd2qc_callback_hudpos",
             "items" : [
@@ -17,6 +17,15 @@
             ],
             "value" : "pd2qc_hudpos",
             "default_value" : 1
+        },
+        {
+            "type" : "toggle",
+            "id" : "pd2qc_menu_pausable",
+            "title" : "Disable in pause menu.",
+            "description" : "If checked, the mod will be disabled when in the pause menu.",
+            "callback" : "pd2qc_callback_pausable",
+            "value" : "pd2qc_pausable",
+            "default_value" : true
         },
         {
             "type" : "toggle",

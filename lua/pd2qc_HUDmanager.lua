@@ -166,9 +166,10 @@ end
 
 --Hides the HUD when the pause menu (ESC) is opened
 Hooks:PreHook(MenuPauseRenderer, "open", "pd2qc_pause_open", function()
-    DelayedCallsFix:Remove("PD2QCtimeout")
-    PD2QC._paused = true
-    PD2QC:RESET()
+    if PD2QC._settings.pausable then
+        PD2QC._paused = true
+        PD2QC:RESET()
+    end
 end)
 
 Hooks:PreHook(MenuPauseRenderer, "close", "pd2qc_pause_close", function()
