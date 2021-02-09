@@ -6,7 +6,7 @@ local function GetKeybind(id)
     local nb = "Not Bound"
     local bind = BLT.Keybinds:get_keybind(id)
     if bind ~= nil then
-        return tostring(bind:Key())
+        return string.upper(tostring(bind:Key()))
     else
         return nb
     end
@@ -14,7 +14,7 @@ end
 
 local function GetMinWidth(table)
     local min = #table["LEFT"] + #table["RIGHT"] + #GetKeybind("pd2qc_left") + #GetKeybind("pd2qc_right")
-        - (math.max(#table["LEFT"], #table["RIGHT"]) / 4)
+        - (math.abs(#table["LEFT"] - #table["RIGHT"]) / 2)
     if(#table["UP"] > min) then
         min = #table["UP"]
     end
