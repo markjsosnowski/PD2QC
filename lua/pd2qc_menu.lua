@@ -6,15 +6,12 @@ end
 function PD2QC:SetLanguage(langnumber)
     local _loc_file
     if langnumber == 1 then
-        _loc_file = PD2QC._path .. "loc/en.txt"
+        PD2QC._loc_path  = PD2QC._path .. "loc/en.txt"
     elseif langnumber == 2 then
-        _loc_file = PD2QC._path .. "loc/es.txt"
+        PD2QC._loc_path  = PD2QC._path .. "loc/es.txt"
     else
-        _loc_file = PD2QC._path .. "loc/en.txt"
+        PD2QC._loc_path = PD2QC._path .. "loc/en.txt"
     end
-    Hooks:Add("LocalizationManagerPostInit", "LocalizationManagerPostInit_pd2qc", function(loc)
-        loc:load_localization_file(_loc_file)
-    end)
 end
 
 function PD2QC:SaveSettings()

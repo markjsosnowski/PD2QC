@@ -34,11 +34,11 @@
     "pd2qc_down_name" : "Select down quickchat",
     "pd2qc_down_desc" : "Select the down Quickchat catagory or the down option of the catagory you are currently in.",
 
-    "_comment4" : "Chat Catagories",
-    "pd2qc_left_catagory" : "Stealth",
-    "pd2qc_up_catagory" : "General",
-    "pd2qc_right_catagory" : "Loud",
-    "pd2qc_down_catagory" : "Orders",
+    "_comment4" : "Chat Categories",
+    "pd2qc_left_category" : "Stealth",
+    "pd2qc_up_category" : "General",
+    "pd2qc_right_category" : "Loud",
+    "pd2qc_down_category" : "Orders",
 
     "_comment5" : "Chat Messages",
     "pd2qc_left_left" : "Answer this pager.",
