@@ -41,23 +41,23 @@
     "pd2qc_down_category" : "Complaints",
 
     "_comment5" : "Chat Messages",
-    "pd2qc_left_left" : "Can we do First World Bank instead?",
-    "pd2qc_left_up" : "I like your mask.",
-    "pd2qc_left_right" : "Please don't ask difficult questions.",
-    "pd2qc_left_down" : "This is Payday!",
+    "pd2qc_left_left" : "I like you're mask :3",
+    "pd2qc_left_up" : "Can we do First World Bank instead?",
+    "pd2qc_left_right" : "This is Payday!",
+    "pd2qc_left_down" : "Please don't ask difficult questions.",
 
     "pd2qc_up_left" : "Donacdum",
-    "pd2qc_up_up" : "Guys, the thermal Drill. Go get it.",
-    "pd2qc_up_right" : "You have the skill of noob.",
+    "pd2qc_up_up" : "Guys, the thermal drill. Go get it.",
+    "pd2qc_up_right" : "You have skill of noob.",
     "pd2qc_up_down" : "I NEEEEEEEEEED A MEDIC BAG!",
 
     "pd2qc_right_left" : "That's pretty cringe, bro.",
-    "pd2qc_right_up" : "Y'all are bad.",
+    "pd2qc_right_up" : "Y'all are bad, let me solo.",
     "pd2qc_right_right" : "Shut up.",
-    "pd2qc_right_down" : "Let me solo.",
+    "pd2qc_right_down" : "Download the PD2QC Mod from Mod Workshop.",
 
-    "pd2qc_down_left" : "I don't like this game.",
-    "pd2qc_down_up" : "Game sucks.",
-    "pd2qc_down_right" : "Can we just ECM rush?",
-    "pd2qc_down_down" : "Dead game."
+    "pd2qc_down_left" : "I hate this game.",
+    "pd2qc_down_up" : "I hate this map.",
+    "pd2qc_down_right" : "I hate stealth.",
+    "pd2qc_down_down" : "I hate loud."
 }
