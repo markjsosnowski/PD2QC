@@ -41,6 +41,7 @@ function PD2QC:CreatePanelFromTable(table)
     hint_panel_settings.min_height = 91
     hint_panel_settings.padding = 5
     
+    --TODO v1.1.1 do some sort of math between width and the edge of the screen to get the center
     hint_panel_settings.center_x, hint_panel_settings.center_y = GetHUDPos()
 
     hint_panel_settings.background = {}

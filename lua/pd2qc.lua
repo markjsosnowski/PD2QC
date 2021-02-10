@@ -3,7 +3,7 @@ if not _G.PD2QC then
     _G.PD2QC = {}
     dofile(ModPath .. "lua/pd2qc_hud.lua")
     dofile(ModPath .. "lua/pd2qc_menu.lua")
-    PD2QC.VERSION = "1.1"
+    PD2QC.VERSION = "1.1.1"
     PD2QC._path = ModPath
     PD2QC._settings_path = SavePath .. "pd2qc_settings.txt"
     PD2QC._paused = false
@@ -19,7 +19,7 @@ end
 Hooks:Add("LocalizationManagerPostInit", "LocalizationManagerPostInit_pd2qc", function(loc)
     loc:load_localization_file(PD2QC._loc_path)
     --IF YOU'RE LOOKING TO CUSTOMIZE CHAT LINES
-    --YOU SHOULD DO IN THE LOCALIZATION FILES
+    --YOU SHOULD DO IT IN THE LOCALIZATION FILES
     PD2QC.CHATS = {
         LEFT={
             LEFT=   loc:text("pd2qc_left_left"),
