@@ -19,6 +19,7 @@
     "pd2qc_option_english" : "English",
     "pd2qc_option_spanish" : "Spanish",
     "pd2qc_option_silly" :  "???",
+    "pd2qc_option_chinese" :  "Chinese",
 
     "pd2qc_option_vanillahud" : "Normal",
     "pd2qc_option_wolfhud" : "WolfHUD",
