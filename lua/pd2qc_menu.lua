@@ -10,7 +10,7 @@ function PD2QC:SetLanguage(langnumber)
     elseif langnumber == 2 then
         PD2QC._loc_path  = PD2QC._path .. "loc/es.txt"
     elseif langnumber == 3 then
-        PD2QC._loc_path  = PD2QC._path .. "loc/meme.txt"
+        PD2QC._loc_path  = PD2QC._path .. "loc/zz.txt"
     else
         PD2QC._loc_path = PD2QC._path .. "loc/en.txt"
     end
