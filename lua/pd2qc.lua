@@ -18,8 +18,8 @@ end
 
 Hooks:Add("LocalizationManagerPostInit", "LocalizationManagerPostInit_pd2qc", function(loc)
     loc:load_localization_file(PD2QC._loc_path)
-    --If you want to change the chat message,
-    --do it in the localization file, not here.
+    --IF YOU'RE LOOKING TO CUSTOMIZE CHAT LINES
+    --YOU SHOULD DO IN THE LOCALIZATION FILES
     PD2QC.CHATS = {
         LEFT={
             LEFT=   loc:text("pd2qc_left_left"),
@@ -82,10 +82,4 @@ function PD2QC:RESET()
     if(PD2QC._settings.persist and not (PD2QC._settings.pausable and PD2QC._paused)) then
         PD2QC:ShowHintPanel(PD2QC.CATEGORY)
     end
-end
-
---For Testing, Not Used. Prints a system message instead of a HUD element of the choices.
-function PD2QC:BETA_HINTPOPUP(chat_table)
-    local _hint_message = "[PD2QC]\nUP:" .. chat_table["UP"] .. "\nLEFT:" .. chat_table["LEFT"] .. "\nRIGHT:" .. chat_table["RIGHT"] .. "\nDOWN:" .. chat_table["DOWN"]
-    managers.chat:feed_system_message(ChatManager.GAME, _hint_message)
 end

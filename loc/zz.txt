@@ -35,7 +35,7 @@
     "pd2qc_down_desc" : "Select the down Quickchat catagory or the down option of the catagory you are currently in.",
 
     "_comment4" : "Chat Categories",
-    "pd2qc_left_category" : "Stupid",
+    "pd2qc_left_category" : "Nonsense",
     "pd2qc_up_category" : "Memes",
     "pd2qc_right_category" : "Insults",
     "pd2qc_down_category" : "Complaints",

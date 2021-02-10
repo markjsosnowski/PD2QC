@@ -10,21 +10,23 @@ Tap again to select one of four phrases in each category.
 
 For example: 
 
-Tap 🡇 🡆 for *"Let's move out."*
+Tap 🡇 🡆 for *"Let's go."*
 
 Tap 🡄 🡅 for *"Use your ECM now!!"*
 
-Tap 🡄 🡇 for *"I need a medic bag!"*
+Tap 🡆 🡇 for *"Sniper, watch out!"*
 
 Features
 --------
 •Ability to bind the quickchat menus to any key.
 
-•Dynamically coded: easily modify the chat lines in the source to suit your needs.
+•Dynamic: easily customize the voice lines to your liking
 
-•A quickchat hint panel so you don't have to memorize each menu.
+•A quickchat hint panel so you don't have to memorize each option.
 
 •Compatibilty between most popular custom huds and the quickchat hint panel.  
+
+•Mod options menu to customize settings
 
 •(In progress) Plays a relevant voice line when you use each chat.
 
