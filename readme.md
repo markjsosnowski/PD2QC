@@ -43,6 +43,8 @@ Installation
 Planned Updates
 ---------------
 • Character Voice Lines 
+
 • Automatic Updater
+
 • VR Support
 
