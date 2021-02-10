@@ -15,7 +15,7 @@
                 "pd2qc_option_spanish",
                 "pd2qc_option_silly"
             ],
-            "value" : "pd2qc_lang",
+            "value" : "language",
             "default_value" : 1
         },
         {
