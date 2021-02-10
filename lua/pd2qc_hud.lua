@@ -38,7 +38,7 @@ function PD2QC:CreatePanelFromTable(table)
     local hint_panel_settings = {}
 
     hint_panel_settings.min_width = GetMinWidth(table)
-    hint_panel_settings.min_height = 96
+    hint_panel_settings.min_height = 91
     hint_panel_settings.padding = 5
     
     hint_panel_settings.center_x, hint_panel_settings.center_y = GetHUDPos()
@@ -64,12 +64,13 @@ function PD2QC:CreatePanelFromTable(table)
     --└──────────────────────────────────────────┘
     hint_panel_settings.text_items = {}
     hint_panel_settings.text_items[0] = {}
-    hint_panel_settings.text_items[0].value = table["UP"] .. "\n[" .. GetKeybind("pd2qc_up") .. "]"
     hint_panel_settings.text_items[1] = {}
-    hint_panel_settings.text_items[1].value = "\n\n" .. table["LEFT"] .. " [" .. GetKeybind("pd2qc_left").. "]"
     hint_panel_settings.text_items[2] = {}
-    hint_panel_settings.text_items[2].value = "\n\n[" .. GetKeybind("pd2qc_right") .. "] " .. table["RIGHT"]
     hint_panel_settings.text_items[3] = {}
+    
+    hint_panel_settings.text_items[0].value = table["UP"] .. "\n[" .. GetKeybind("pd2qc_up") .. "]"
+    hint_panel_settings.text_items[1].value = "\n\n" .. table["LEFT"] .. " [" .. GetKeybind("pd2qc_left").. "]"
+    hint_panel_settings.text_items[2].value = "\n\n[" .. GetKeybind("pd2qc_right") .. "] " .. table["RIGHT"]
     hint_panel_settings.text_items[3].value= "\n\n\n[" .. GetKeybind("pd2qc_down") .. "]\n" .. table["DOWN"]
     return hint_panel_settings
 end
