@@ -38,22 +38,8 @@ Installation
 
 2. Start the game and assign keybinds in Options->Mod Keybinds
 
-Customizing
------------
-You can customize certain things about the mod without knowledge of lua coding. 
-
-Want to change the specific text sent in chat? In the pd2qc.lua file, you can alter the quoted 
-strings in the PD2QC.CHATS table. These changes will autoamtically be applied to the HUD. 
-
-Use a custom HUD? You can change the posistion of PD2QC's HUD window by editing the pd2qc.lua file.
-In the PD2QC.SETTINGS table, there is a setting called "hud_placement" followed by a number.
-Change it to whichever fits your custom hud best: 0 is on the left, 1 is on the right, and 2 is in the middle.
-
 Planned Updates
 ---------------
-• Localization support
-• Custom Keybinds Shown In HUD 
-• Mod options menu in game for settings like HUD posistion
 • Character Voice Lines 
 • Automatic Updater
 • VR Support
