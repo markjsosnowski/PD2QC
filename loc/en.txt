@@ -1,0 +1,63 @@
+{
+    "_comment1" : "Menu Labels",
+    "pd2qc_menu_title" : "PD2QC Quickchat Mod",
+    "pd2qc_menu_desc" : "Settings for PD2QC",
+    "pd2qc_menu_hudpos_title" : "HUD Posistion",
+    "pd2qc_menu_hudpos_desc" : "Select the option that best fits your custom HUD.",
+    "pd2qc_menu_pausable_title" : "Disable in pause menu.",
+    "pd2qc_menu_pausable_desc" : "If checked, the mod will be disabled in the pause menu.",
+    "pd2qc_menu_persist_title" : "Persistant HUD",
+    "pd2qc_menu_persist_desc" : "If checked, the quickchat HUD will stay on the screen.",
+    "pd2qc_menu_timeout_title" : "Timeout Delay",
+    "pd2qc_menu_timeout_desc" : "How long you have to select an option after picking a catagory before it resets.",
+    "pd2qc_menu_voice_title" : "Enable Voicelines",
+    "pd2qc_menu_voice_desc" : "Coming Later.",
+    "pd2qc_menu_lang_title" : "Language",
+    "pd2qc_menu_lang_desc" : "Choose your language (requires a restart).",
+
+    "_comment2" : "Menu Options",
+    "pd2qc_option_english" : "English",
+    "pd2qc_option_spanish" : "Spanish",
+    "pd2qc_option_silly" :  "???",
+
+    "pd2qc_option_vanillahud" : "Default Hud",
+    "pd2qc_option_wolfhud" : "WolfHUD",
+    "pd2qc_option_bl2hud" : "BL2Hud",
+
+    "_comment3" : "Keybind Labels",
+    "pd2qc_up_name" : "Select up quickchat",
+    "pd2qc_up_desc" : "Select the up Quickchat catagory or the up option of the catagory you are currently in.",
+    "pd2qc_left_name" : "Select left quickchat",
+    "pd2qc_left_desc" : "Select the left Quickchat catagory or the left option of the catagory you are currently in.",
+    "pd2qc_right_name" : "Select right quickchat",
+    "pd2qc_right_desc" : "Select the right Quickchat catagory or the right option of the catagory you are currently in.",
+    "pd2qc_down_name" : "Select down quickchat",
+    "pd2qc_down_desc" : "Select the down Quickchat catagory or the down option of the catagory you are currently in.",
+
+    "_comment4" : "Chat Categories",
+    "pd2qc_left_category" : "Stealth",
+    "pd2qc_up_category" : "General",
+    "pd2qc_right_category" : "Loud",
+    "pd2qc_down_category" : "Orders",
+
+    "_comment5" : "Chat Messages",
+    "pd2qc_left_left" : "Answer this pager.",
+    "pd2qc_left_up" : "Use your ECM now!!",
+    "pd2qc_left_right" : "Bag this body.",
+    "pd2qc_left_down" : "Watch out!",
+
+    "pd2qc_up_left" : "You get it.",
+    "pd2qc_up_up" : "I got it.",
+    "pd2qc_up_right" : "Equipment here.",
+    "pd2qc_up_down" : "Take hostages.",
+
+    "pd2qc_right_left" : "Out of Ammo!",
+    "pd2qc_right_up" : "Need Doctor Bag!",
+    "pd2qc_right_right" : "Help me!",
+    "pd2qc_right_down" : "Sniper here!",
+
+    "pd2qc_down_left" : "Come here.",
+    "pd2qc_down_up" : "Stay there.",
+    "pd2qc_down_right" : "Let's go.",
+    "pd2qc_down_down" : "Take cover."
+}

@@ -10,27 +10,29 @@ Tap again to select one of four phrases in each category.
 
 For example: 
 
-Tap 🡇 🡆 for *"Let's move out."*
+Tap 🡇 🡆 for *"Let's go."*
 
 Tap 🡄 🡅 for *"Use your ECM now!!"*
 
-Tap 🡄 🡇 for *"I need a medic bag!"*
+Tap 🡆 🡇 for *"Sniper, watch out!"*
 
 Features
 --------
 •Ability to bind the quickchat menus to any key.
 
-•Dynamically coded: easily modify the chat lines in the source to suit your needs.
+•Dynamic: easily customize the voice lines to your liking
 
-•A quickchat hint panel so you don't have to memorize each menu.
+•A quickchat hint panel so you don't have to memorize each option.
 
 •Compatibilty between most popular custom huds and the quickchat hint panel.  
+
+•Mod options menu to customize settings
 
 •(In progress) Plays a relevant voice line when you use each chat.
 
 Installation
 -------------
-**Requires BLT2.**
+**Requires SuperBLT.**
 
 *Includes Delayed Calls Fix by SNH20.*
 
@@ -38,15 +40,11 @@ Installation
 
 2. Start the game and assign keybinds in Options->Mod Keybinds
 
-Customizing
------------
-You can customize certain things about the mod without knowledge of lua coding. 
+Planned Updates
+---------------
+• Character Voice Lines 
 
-Want to change the specific text sent in chat? In the pd2qc.lua file, you can alter the quoted 
-strings in the PD2QC.CHATS table. These changes will autoamtically be applied to the HUD. 
+• Automatic Updater
 
-Use a custom HUD? You can change the posistion of PD2QC's HUD window by editing the pd2qc.lua file.
-In the PD2QC.SETTINGS table, there is a setting called "hud_placement" followed by a number.
-Change it to whichever fits your custom hud best: 0 is on the left, 1 is on the right, and 2 is in the middle.
+• VR Support
 
-*In a future update, these settings should be avalible via the in-game mod options menu.*

@@ -2,49 +2,46 @@ if not _G.PD2QC then
     dofile(ModPath .. "lua/pd2qc.lua")
 end
 
---TODO make a function that gets the actual bound keys here
-PD2QC.KEYBINDS ={
-    LEFT = "LEFT",
-    UP = "UP",
-    RIGHT = "RIGHT",
-    DOWN = "DOWN"
-}
+local function GetKeybind(id)
+    local nb = "Not Bound"
+    local bind = BLT.Keybinds:get_keybind(id)
+    if bind ~= nil then
+        return string.upper(tostring(bind:Key()))
+    else
+        return nb
+    end
+end
 
 local function GetMinWidth(table)
-    local min = #table["LEFT"] + #table["RIGHT"] + #PD2QC.KEYBINDS["LEFT"] + #PD2QC.KEYBINDS["RIGHT"]
+    local min = #table["LEFT"] + #table["RIGHT"] + #GetKeybind("pd2qc_left") + #GetKeybind("pd2qc_right")
     if(#table["UP"] > min) then
         min = #table["UP"]
     end
     if(#table["DOWN"] > min) then
         min = #table["DOWN"]
     end
-    return (min * 8)
+    return (min * 7.5)
 end
 
---HUD Placement Settings
-if (PD2QC.SETTINGS["hud_placement"] == 0) then
-    PD2QC._center_x = 0.15
-    PD2QC._center_y = 0.9
-elseif (PD2QC.SETTINGS["hud_placement"] == 1) then
-    PD2QC._center_x = 0.85
-    PD2QC._center_y = 0.70
-elseif (PD2QC.SETTINGS["hud_placement"] == 2) then
-    PD2QC._center_x = 0.5
-    PD2QC._center_y = 0.8
-else
-    PD2QC._center_x = 0.15
-    PD2QC._center_y = 0.9
+local function GetHUDPos()
+    if PD2QC._settings.hud_placement == 1 then
+        return 0.2, 0.9
+    elseif PD2QC._settings.hud_placement == 2 then
+        return 0.85, 0.7
+    elseif PD2QC._settings.hud_placement == 3 then
+        return 0.5, 0.8
+    end
+    return 0.2, 0.9
 end
 
 function PD2QC:CreatePanelFromTable(table)
     local hint_panel_settings = {}
 
     hint_panel_settings.min_width = GetMinWidth(table)
-    hint_panel_settings.min_height = 97.5
+    hint_panel_settings.min_height = 91
     hint_panel_settings.padding = 5
     
-    hint_panel_settings.center_x = PD2QC._center_x
-    hint_panel_settings.center_y = PD2QC._center_y
+    hint_panel_settings.center_x, hint_panel_settings.center_y = GetHUDPos()
 
     hint_panel_settings.background = {}
     hint_panel_settings.background.alpha = 0.75
@@ -67,13 +64,14 @@ function PD2QC:CreatePanelFromTable(table)
     --└──────────────────────────────────────────┘
     hint_panel_settings.text_items = {}
     hint_panel_settings.text_items[0] = {}
-    hint_panel_settings.text_items[0].value = table["UP"] .. "\n[" .. PD2QC.KEYBINDS["UP"] .. "]"
     hint_panel_settings.text_items[1] = {}
-    hint_panel_settings.text_items[1].value = "\n\n" .. table["LEFT"] .. " [" .. PD2QC.KEYBINDS["LEFT"] .. "]"
     hint_panel_settings.text_items[2] = {}
-    hint_panel_settings.text_items[2].value = "\n\n[" .. PD2QC.KEYBINDS["RIGHT"] .. "] " .. table["RIGHT"]
     hint_panel_settings.text_items[3] = {}
-    hint_panel_settings.text_items[3].value= "\n\n\n[" .. PD2QC.KEYBINDS["DOWN"] .. "]\n" .. table["DOWN"]
+    
+    hint_panel_settings.text_items[0].value = table["UP"] .. "\n[" .. GetKeybind("pd2qc_up") .. "]"
+    hint_panel_settings.text_items[1].value = "\n\n" .. table["LEFT"] .. " [" .. GetKeybind("pd2qc_left").. "]"
+    hint_panel_settings.text_items[2].value = "\n\n[" .. GetKeybind("pd2qc_right") .. "] " .. table["RIGHT"]
+    hint_panel_settings.text_items[3].value= "\n\n\n[" .. GetKeybind("pd2qc_down") .. "]\n" .. table["DOWN"]
     return hint_panel_settings
 end
 
@@ -149,3 +147,18 @@ function PD2QC:NewText(panel, name, layer, font, font_size, color, text, align, 
     }
     return panel:text(text_data)
 end
+
+--Hides the HUD when the pause menu (ESC) is opened
+Hooks:PreHook(MenuPauseRenderer, "open", "pd2qc_pause_open", function()
+    PD2QC._paused = true
+    if PD2QC._settings.pausable then
+        PD2QC:RESET()
+    end
+end)
+
+Hooks:PreHook(MenuPauseRenderer, "close", "pd2qc_pause_close", function()
+    PD2QC._paused = false
+    if(PD2QC._settings.persist) then
+        PD2QC:ShowHintPanel(PD2QC.CATEGORY)
+    end
+end)

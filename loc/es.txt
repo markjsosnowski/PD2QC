@@ -1,0 +1,63 @@
+{
+    "_comment1" : "Menu Labels",
+    "pd2qc_menu_title" : "PD2QC Quickchat Mod",
+    "pd2qc_menu_desc" : "Configuración para PD2QC",
+    "pd2qc_menu_hudpos_title" : "Posición del HUD",
+    "pd2qc_menu_hudpos_desc" : "_",
+    "pd2qc_menu_pausable_title" : "Desactivar cuando está en pausa.",
+    "pd2qc_menu_pausable_desc" : "_",
+    "pd2qc_menu_persist_title" : "HUD persistirá",
+    "pd2qc_menu_persist_desc" : "_",
+    "pd2qc_menu_timeout_title" : "Tiempo para elegir",
+    "pd2qc_menu_timeout_desc" : "_",
+    "pd2qc_menu_voice_title" : "Discurso de personajes ",
+    "pd2qc_menu_voice_desc" : "Aún no agregado.",
+    "pd2qc_menu_lang_title" : "Idioma",
+    "pd2qc_menu_lang_desc" : "_",
+
+    "_comment2" : "Menu Options",
+    "pd2qc_option_english" : "English",
+    "pd2qc_option_spanish" : "Spanish",
+    "pd2qc_option_silly" :  "???",
+
+    "pd2qc_option_vanillahud" : "Normal",
+    "pd2qc_option_wolfhud" : "WolfHUD",
+    "pd2qc_option_bl2hud" : "BL2Hud",
+
+    "_comment3" : "Keybind Labels",
+    "pd2qc_up_name" : "Elija la opción de arriba",
+    "pd2qc_up_desc" : "_",
+    "pd2qc_left_name" : "Elija la opción de izquierda",
+    "pd2qc_left_desc" : "_",
+    "pd2qc_right_name" : "Elija la opción de derecha",
+    "pd2qc_right_desc" : "_",
+    "pd2qc_down_name" : "Elija la opción de abajo",
+    "pd2qc_down_desc" : "_",
+
+    "_comment4" : "Chat Categories",
+    "pd2qc_left_category" : "Sigilo",
+    "pd2qc_up_category" : "General",
+    "pd2qc_right_category" : "Combate",
+    "pd2qc_down_category" : "Orden",
+
+    "_comment5" : "Chat Messages",
+    "pd2qc_left_left" : "Contestar localizadores.",
+    "pd2qc_left_up" : "¡Utilice su ECM!",
+    "pd2qc_left_right" : "Embolsar este cadáver.",
+    "pd2qc_left_down" : "¡Ten cuidado!",
+
+    "pd2qc_up_left" : "Tú consigues eso.",
+    "pd2qc_up_up" : "Voy a conseguirlo.",
+    "pd2qc_up_right" : "Aquí está el equipo.",
+    "pd2qc_up_down" : "Atar rehenes.",
+
+    "pd2qc_right_left" : "¡Munición vacía!",
+    "pd2qc_right_up" : "¡Necesito botiquín médico!",
+    "pd2qc_right_right" : "¡Ayduda!",
+    "pd2qc_right_down" : "¡Francotirador!",
+
+    "pd2qc_down_left" : "Ven aca.",
+    "pd2qc_down_up" : "Permanecer allí.",
+    "pd2qc_down_right" : "Vamonos",
+    "pd2qc_down_down" : "Ponerse a cubierto."
+}

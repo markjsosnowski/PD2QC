@@ -1,70 +1,58 @@
 --Setup
 if not _G.PD2QC then
     _G.PD2QC = {}
-    dofile(ModPath .. "lua/pd2qc_HUDmanager.lua")
-    PD2QC.VERSION = "0.1"
+    dofile(ModPath .. "lua/pd2qc_hud.lua")
+    dofile(ModPath .. "lua/pd2qc_menu.lua")
+    PD2QC.VERSION = "1.1"
+    PD2QC._path = ModPath
+    PD2QC._settings_path = SavePath .. "pd2qc_settings.txt"
+    PD2QC._paused = false
+    PD2QC._settings = {}
+    PD2QC:LoadSettings()
+    PD2QC:SetLanguage(PD2QC._settings.language)
 end
 
 if not _G.DelayedCallsFix then
     dofile(ModPath .. "lua/delayed_calls.lua")
 end
 
---IF YOU DON'T KNOW WHAT YOU ARE DOING
---ONLY CHANGE THINGS INSIDE THIS BOX
---───────────────────────────────────────────────────────────┐
-
---These will later be changable in Mod Options
-PD2QC.SETTINGS = {
-    --Always show the CATEGORY selection menu on your HUD
-    persistant_menu = false,
-    --Should voice lines play when using a quickchat?
-    voices_enabled = false,
-
-    --0: Lower Left (Under chat in Vanilla, PocoHud3)
-    --1: Lower Right (Above chat in WolfHUD)
-    --2: Lower Center (Above the health bar in BL2hud)
-    hud_placement = 0
-}
-
---If you wish to change the specific chat messages,
---do so in this table and only in this table.
---Everything else will be changed automatically.
-PD2QC.CHATS = {
-    LEFT={
-        LEFT="Answer this pager.",
-        UP="Use your ECM now!!",
-        RIGHT="Bag this body.",
-        DOWN="Watch out!"
-    },
-    UP={
-        LEFT="You get it.",
-        UP="I got it.",
-        RIGHT="I found equipment.",
-        DOWN="Take hostages."
-    },
-    RIGHT={
-        LEFT="Out of Ammunition!",
-        UP="Need Doctor Bag!",
-        RIGHT="Help me!",
-        DOWN="Sniper here!"
-    },
-    DOWN={
-        LEFT="Come here.",
-        UP="Stay there.",
-        RIGHT="Let's go.",
-        DOWN="Take cover."
+Hooks:Add("LocalizationManagerPostInit", "LocalizationManagerPostInit_pd2qc", function(loc)
+    loc:load_localization_file(PD2QC._loc_path)
+    --IF YOU'RE LOOKING TO CUSTOMIZE CHAT LINES
+    --YOU SHOULD DO IN THE LOCALIZATION FILES
+    PD2QC.CHATS = {
+        LEFT={
+            LEFT=   loc:text("pd2qc_left_left"),
+            UP=     loc:text("pd2qc_left_up"),
+            RIGHT=  loc:text("pd2qc_left_right"),
+            DOWN=   loc:text("pd2qc_left_down")
+        },
+        UP={
+            LEFT=   loc:text("pd2qc_up_left"),
+            UP=     loc:text("pd2qc_up_up"),
+            RIGHT=  loc:text("pd2qc_up_right"),
+            DOWN=   loc:text("pd2qc_up_down")
+        },
+        RIGHT={
+            LEFT=   loc:text("pd2qc_right_left"),
+            UP=     loc:text("pd2qc_right_up"),
+            RIGHT=  loc:text("pd2qc_right_right"),
+            DOWN=   loc:text("pd2qc_right_down")
+        },
+        DOWN={
+            LEFT=   loc:text("pd2qc_down_left"),
+            UP=     loc:text("pd2qc_down_up"),
+            RIGHT=  loc:text("pd2qc_down_right"),
+            DOWN=   loc:text("pd2qc_down_down")
+        }
     }
-}
-
---When the persistant_menu setting is true, a hint menu
---showing these catagories will always been on the HUD
-PD2QC.CATEGORY = {
-    LEFT = "Stealth",
-    UP = "General",
-    RIGHT = "Loud",
-    DOWN = "Orders"
-}
---───────────────────────────────────────────────────────────┘
+    PD2QC.CATEGORY = {
+        LEFT=       loc:text("pd2qc_left_category"),
+        UP =        loc:text("pd2qc_up_category"),
+        RIGHT =     loc:text("pd2qc_right_category"),
+        DOWN =      loc:text("pd2qc_down_category")
+    }
+end)
 
 PD2QC.VOICE ={} --TODO assign each command a relevant voice line
 
@@ -79,11 +67,9 @@ function PD2QC:SELECT(direction)
         PD2QC:RESET()
     else
         PD2QC.PREV = direction
-        if PD2QC.SETTINGS.persistant_menu then
-            PD2QC:RemoveHintPanel()
-        end
+        PD2QC:RemoveHintPanel()
         PD2QC:ShowHintPanel(PD2QC.CHATS[direction])
-        DelayedCallsFix:Add("PD2QCtimeout", 4, function()
+        DelayedCallsFix:Add("PD2QCtimeout", PD2QC._settings.timeout, function()
             PD2QC:RESET()
         end)
     end
@@ -93,13 +79,7 @@ function PD2QC:RESET()
     PD2QC.PREV = nil
     PD2QC:RemoveHintPanel()
     DelayedCallsFix:Remove("PD2QCtimeout")
-    if(PD2QC.SETTINGS.persistant_menu) then
+    if(PD2QC._settings.persist and not (PD2QC._settings.pausable and PD2QC._paused)) then
         PD2QC:ShowHintPanel(PD2QC.CATEGORY)
     end
-end
-
---For Testing, Not Used. Prints a system message instead of a HUD element of the choices.
-function PD2QC:BETA_HINTPOPUP(chat_table)
-    local _hint_message = "[PD2QC]\nUP:" .. chat_table["UP"] .. "\nLEFT:" .. chat_table["LEFT"] .. "\nRIGHT:" .. chat_table["RIGHT"] .. "\nDOWN:" .. chat_table["DOWN"]
-    managers.chat:feed_system_message(ChatManager.GAME, _hint_message)
 end
