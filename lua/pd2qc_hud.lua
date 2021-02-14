@@ -3,8 +3,8 @@ if not _G.PD2QC then
 end
 
 Hooks:PostHook(HUDManager, "init", "get_safe_rect_dims", function(_hudmgr)
-    PD2QC._safe_x = _hudmgr.safe_rect.x
-    PD2QC._safe_y = _hudmgr.safe_rect.y
+    PD2QC._safe_x = _hudmgr._saferect_size.x
+    PD2QC._safe_y = _hudmgr._saferect_size.y
 end)
 
 local function GetKeybind(id)
