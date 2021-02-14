@@ -2,6 +2,12 @@ if not _G.PD2QC then
     dofile(ModPath .. "lua/pd2qc.lua")
 end
 
+PD2QC._safe_x = HUDManager.saferect.x
+PD2QC._safe_y = HUDManager.saferect.y
+log(PD2QC._safe_x)
+log(PD2QC._safe_y)
+
+
 local function GetKeybind(id)
     local nb = "Not Bound"
     local bind = BLT.Keybinds:get_keybind(id)
@@ -22,6 +28,7 @@ local function GetMinWidth(table)
     end
     return (min * 7.5)
 end
+
 
 local function GetHUDPos()
     if PD2QC._settings.hud_placement == 1 then
