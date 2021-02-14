@@ -163,3 +163,7 @@ Hooks:PreHook(MenuPauseRenderer, "close", "pd2qc_pause_close", function()
         PD2QC:RESET()
     end
 end)
+
+Hooks:PostHook(HUDManager, "load_hud", "HUDManager_load_persist", function()
+    PD2QC:RESET()
+end)

@@ -59,8 +59,6 @@ PD2QC.VOICE ={} --TODO assign each command a relevant voice line
 --Main Script
 PD2QC.PREV = nil
 
---TODO if persistant_menu, show it at mission start
-
 function PD2QC:SELECT(direction)
     if PD2QC.PREV then
         managers.chat:send_message(1,'?',PD2QC.CHATS[PD2QC.PREV][direction], Color.green)
