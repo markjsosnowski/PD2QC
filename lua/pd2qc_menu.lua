@@ -62,6 +62,9 @@ Hooks:Add("MenuManagerInitialize", "InitPD2QCMenu", function(menu_manager)
     end
     MenuCallbackHandler.pd2qc_callback_pausable = function (self, item)
         PD2QC._settings.pausable = (item:value() == "on" and true or false)
+        if(PD2QC._settings.pausable and PD2QC._paused) then
+            PD2QC:RESET()
+        end
         PD2QC:SaveSettings()
     end
     MenuCallbackHandler.pd2qc_callback_lang = function(self, item)
