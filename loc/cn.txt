@@ -16,8 +16,8 @@
     "pd2qc_menu_lang_desc" : "重启游戏以应用更改",
 
     "_comment2" : "界面设置",
-    "pd2qc_option_english" : "英语",
-    "pd2qc_option_spanish" : "西班牙语",
+    "pd2qc_option_english" : "English",
+    "pd2qc_option_spanish" : "Español",
     "pd2qc_option_silly" :  "???",
     "pd2qc_option_chinese" : "简体中文",
 
