@@ -5,6 +5,9 @@ end
 Hooks:PostHook(HUDManager, "init", "get_safe_rect_dims", function(_hudmgr)
     PD2QC._safe_x = _hudmgr._saferect_size.x
     PD2QC._safe_y = _hudmgr._saferect_size.y
+    PD2QC._safe_h = _hudmgr._saferect_size.h
+    PD2QC._safe_w = _hudmgr._saferect_size.w
+    log(PD2QC._safe_x .. PD2QC._safe_y .. PD2QC._safe_h .. PD2QC._safe_w)
 end)
 
 local function GetKeybind(id)
@@ -38,6 +41,10 @@ local function GetHUDPos()
         return 0.5, 0.8
     end
     return 0.2, 0.9
+end
+
+local function CalcHUDPos(percent_x, percent_y, panel_width)
+    local a = 1
 end
 
 function PD2QC:CreatePanelFromTable(table)
