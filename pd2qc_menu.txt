@@ -13,7 +13,8 @@
             "items" : [
                 "pd2qc_option_english",
                 "pd2qc_option_spanish",
-                "pd2qc_option_silly"
+                "pd2qc_option_silly",
+                "pd2qc_option_chinese",
             ],
             "value" : "language",
             "default_value" : 1

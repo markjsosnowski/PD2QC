@@ -11,6 +11,8 @@ function PD2QC:SetLanguage(langnumber)
         PD2QC._loc_path  = PD2QC._path .. "loc/es.txt"
     elseif langnumber == 3 then
         PD2QC._loc_path  = PD2QC._path .. "loc/zz.txt"
+    elseif langnumber == 4 then
+        PD2QC._loc_path  = PD2QC._path .. "loc/cn.txt"
     else
         PD2QC._loc_path = PD2QC._path .. "loc/en.txt"
     end
@@ -42,6 +44,7 @@ end
 Hooks:Add("MenuManagerInitialize", "InitPD2QCMenu", function(menu_manager)
     MenuCallbackHandler.pd2qc_callback_hudpos = function(self, item)
         PD2QC._settings.hud_placement = item:value()
+        PD2QC:RESET()
         PD2QC:SaveSettings()
     end
     MenuCallbackHandler.pd2qc_callback_persist = function(self, item)
@@ -63,6 +66,7 @@ Hooks:Add("MenuManagerInitialize", "InitPD2QCMenu", function(menu_manager)
     end
     MenuCallbackHandler.pd2qc_callback_lang = function(self, item)
         PD2QC._settings.language = item:value()
+        --TODO maybe call lang update here and it can be done on the fly? needs testing
         PD2QC:SaveSettings()
     end
     
