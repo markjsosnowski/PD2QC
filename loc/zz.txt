@@ -48,7 +48,7 @@
     "pd2qc_left_down" : "Please don't ask difficult questions.",
 
     "pd2qc_up_left" : "Donacdum",
-    "pd2qc_up_up" : "Guys, the thermal drill. Go get it.",
+    "pd2qc_up_up" : "Add Muratic Acid",
     "pd2qc_up_right" : "You have skill of noob.",
     "pd2qc_up_down" : "I NEEEEEEEEEED A MEDIC BAG!",
 
