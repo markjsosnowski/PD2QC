@@ -2,11 +2,10 @@ if not _G.PD2QC then
     dofile(ModPath .. "lua/pd2qc.lua")
 end
 
-PD2QC._safe_x = HUDManager.saferect.x
-PD2QC._safe_y = HUDManager.saferect.y
-log(PD2QC._safe_x)
-log(PD2QC._safe_y)
-
+Hooks:PostHook(HUDManager, "init", "get_safe_rect_dims", function(_hudmgr)
+    PD2QC._safe_x = _hudmgr.safe_rect.x
+    PD2QC._safe_y = _hudmgr.safe_rect.y
+end)
 
 local function GetKeybind(id)
     local nb = "Not Bound"
