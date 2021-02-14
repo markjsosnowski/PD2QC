@@ -17,9 +17,9 @@
 
     "_comment2" : "Menu Options",
     "pd2qc_option_english" : "English",
-    "pd2qc_option_spanish" : "Spanish",
+    "pd2qc_option_spanish" : "Español",
     "pd2qc_option_silly" :  "???",
-    "pd2qc_option_chinese" :  "Chinese",
+    "pd2qc_option_chinese" :  "简体中文 (Chino)",
 
     "pd2qc_option_vanillahud" : "Normal",
     "pd2qc_option_wolfhud" : "WolfHUD",

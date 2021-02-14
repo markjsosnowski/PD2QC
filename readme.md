@@ -18,6 +18,8 @@ Tap 🡆 🡇 for *"Sniper, watch out!"*
 
 Features
 --------
+•Support for 3 languages: English, Spanish, and Simplified Chinese*
+
 •Ability to bind the quickchat menus to any key.
 
 •Dynamic: easily customize the voice lines to your liking
@@ -33,18 +35,10 @@ Features
 Installation
 -------------
 **Requires SuperBLT.**
+**Requires Unofficial Simplified Chinese Localization if using the Chinese language option.**
 
 *Includes Delayed Calls Fix by SNH20.*
 
 1. Extract "PD2QC-master" folder from the .zip into to your Payday 2 mods folder. 
 
 2. Start the game and assign keybinds in Options->Mod Keybinds
-
-Planned Updates
----------------
-• Character Voice Lines 
-
-• Automatic Updater
-
-• VR Support
-

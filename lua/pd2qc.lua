@@ -3,7 +3,7 @@ if not _G.PD2QC then
     _G.PD2QC = {}
     dofile(ModPath .. "lua/pd2qc_hud.lua")
     dofile(ModPath .. "lua/pd2qc_menu.lua")
-    PD2QC.VERSION = "1.1.1"
+    PD2QC.VERSION = "1.2"
     PD2QC._path = ModPath
     PD2QC._settings_path = SavePath .. "pd2qc_settings.txt"
     PD2QC._paused = false
@@ -59,8 +59,6 @@ PD2QC.VOICE ={} --TODO assign each command a relevant voice line
 --Main Script
 PD2QC.PREV = nil
 
---TODO if persistant_menu, show it at mission start
-
 function PD2QC:SELECT(direction)
     if PD2QC.PREV then
         managers.chat:send_message(1,'?',PD2QC.CHATS[PD2QC.PREV][direction], Color.green)
@@ -82,4 +80,9 @@ function PD2QC:RESET()
     if(PD2QC._settings.persist and not (PD2QC._settings.pausable and PD2QC._paused)) then
         PD2QC:ShowHintPanel(PD2QC.CATEGORY)
     end
+end
+
+--Sends a debug string a System Message in chat
+function PD2QC:DEBUG(_msg)
+    managers.chat:send_message(1,'?',tostring(_msg))
 end

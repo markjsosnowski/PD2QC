@@ -2,6 +2,15 @@ if not _G.PD2QC then
     dofile(ModPath .. "lua/pd2qc.lua")
 end
 
+Hooks:PostHook(HUDManager, "init", "get_safe_rect_dims", function(_hudmgr)
+    PD2QC._safe_x = _hudmgr._saferect_size.x
+    PD2QC._safe_y = _hudmgr._saferect_size.y
+    PD2QC._safe_h = _hudmgr._saferect_size.h
+    PD2QC._safe_w = _hudmgr._saferect_size.w
+    PD2QC._res_h = _hudmgr._workspace_size.h
+    PD2QC._res_w = _hudmgr._workspace_size.w
+end)
+
 local function GetKeybind(id)
     local nb = "Not Bound"
     local bind = BLT.Keybinds:get_keybind(id)
@@ -23,11 +32,14 @@ local function GetMinWidth(table)
     return (min * 7.5)
 end
 
-local function GetHUDPos()
+
+local function GetHUDPos(panel_width)
     if PD2QC._settings.hud_placement == 1 then
+        local _x = ((PD2QC._safe_x*PD2QC._res_w) - (0.55 * panel_width)) / PD2QC._res_w
         return 0.2, 0.9
     elseif PD2QC._settings.hud_placement == 2 then
-        return 0.85, 0.7
+        local _x = ((PD2QC._safe_w*PD2QC._res_w) - (0.55 * panel_width)) / PD2QC._res_w
+        return _x, 0.7
     elseif PD2QC._settings.hud_placement == 3 then
         return 0.5, 0.8
     end
@@ -42,7 +54,7 @@ function PD2QC:CreatePanelFromTable(table)
     hint_panel_settings.padding = 5
     
     --TODO v1.1.1 do some sort of math between width and the edge of the screen to get the center
-    hint_panel_settings.center_x, hint_panel_settings.center_y = GetHUDPos()
+    hint_panel_settings.center_x, hint_panel_settings.center_y = GetHUDPos( hint_panel_settings.min_width )
 
     hint_panel_settings.background = {}
     hint_panel_settings.background.alpha = 0.75
@@ -159,7 +171,11 @@ end)
 
 Hooks:PreHook(MenuPauseRenderer, "close", "pd2qc_pause_close", function()
     PD2QC._paused = false
-    if(PD2QC._settings.persist) then
-        PD2QC:ShowHintPanel(PD2QC.CATEGORY)
+    if PD2QC._settings.pausable then
+        PD2QC:RESET()
     end
+end)
+
+Hooks:PostHook(ChatGui, "init", "persist_on_hud_enable", function()
+    PD2QC:RESET()
 end)
