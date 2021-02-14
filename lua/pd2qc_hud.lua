@@ -35,6 +35,7 @@ end
 
 local function GetHUDPos(panel_width)
     if PD2QC._settings.hud_placement == 1 then
+        local _x = ((PD2QC._safe_x*PD2QC._res_w) - (0.55 * panel_width)) / PD2QC._res_w
         return 0.2, 0.9
     elseif PD2QC._settings.hud_placement == 2 then
         local _x = ((PD2QC._safe_w*PD2QC._res_w) - (0.55 * panel_width)) / PD2QC._res_w
