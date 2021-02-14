@@ -7,7 +7,8 @@ Hooks:PostHook(HUDManager, "init", "get_safe_rect_dims", function(_hudmgr)
     PD2QC._safe_y = _hudmgr._saferect_size.y
     PD2QC._safe_h = _hudmgr._saferect_size.h
     PD2QC._safe_w = _hudmgr._saferect_size.w
-    log(PD2QC._safe_x .. PD2QC._safe_y .. PD2QC._safe_h .. PD2QC._safe_w)
+    PD2QC._res_h = _hudmgr._workspace_size.h
+    PD2QC._res_w = _hudmgr._workspace_size.w
 end)
 
 local function GetKeybind(id)
@@ -32,19 +33,16 @@ local function GetMinWidth(table)
 end
 
 
-local function GetHUDPos()
+local function GetHUDPos(panel_width)
     if PD2QC._settings.hud_placement == 1 then
         return 0.2, 0.9
     elseif PD2QC._settings.hud_placement == 2 then
-        return 0.85, 0.7
+        local _x = ((PD2QC._safe_w*PD2QC._res_w) - (0.55 * panel_width)) / PD2QC._res_w
+        return _x, 0.7
     elseif PD2QC._settings.hud_placement == 3 then
         return 0.5, 0.8
     end
     return 0.2, 0.9
-end
-
-local function CalcHUDPos(percent_x, percent_y, panel_width)
-    local a = 1
 end
 
 function PD2QC:CreatePanelFromTable(table)
@@ -55,7 +53,7 @@ function PD2QC:CreatePanelFromTable(table)
     hint_panel_settings.padding = 5
     
     --TODO v1.1.1 do some sort of math between width and the edge of the screen to get the center
-    hint_panel_settings.center_x, hint_panel_settings.center_y = GetHUDPos()
+    hint_panel_settings.center_x, hint_panel_settings.center_y = GetHUDPos( hint_panel_settings.min_width )
 
     hint_panel_settings.background = {}
     hint_panel_settings.background.alpha = 0.75
@@ -179,4 +177,10 @@ end)
 
 Hooks:PostHook(ChatGui, "init", "persist_on_hud_enable", function()
     PD2QC:RESET()
+    PD2QC:DEBUG(PD2QC._safe_x)
+    PD2QC:DEBUG(PD2QC._safe_y)
+    PD2QC:DEBUG(PD2QC._safe_h)
+    PD2QC:DEBUG(PD2QC._safe_w)
+    PD2QC:DEBUG(PD2QC._res_h)
+    PD2QC:DEBUG(PD2QC._res_w)
 end)

@@ -81,3 +81,8 @@ function PD2QC:RESET()
         PD2QC:ShowHintPanel(PD2QC.CATEGORY)
     end
 end
+
+--Sends a debug string a System Message in chat
+function PD2QC:DEBUG(_msg)
+    managers.chat:send_message(1,'?',tostring(_msg))
+end
