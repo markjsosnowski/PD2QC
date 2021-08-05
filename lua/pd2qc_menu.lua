@@ -13,6 +13,8 @@ function PD2QC:SetLanguage(langnumber)
         PD2QC._loc_path  = PD2QC._path .. "loc/zz.txt"
     elseif langnumber == 4 then
         PD2QC._loc_path  = PD2QC._path .. "loc/cn.txt"
+    elseif langnumber == 5 then
+        PD2QC._loc_path = PD2QC._path .. "loc/ru.txt"
     else
         PD2QC._loc_path = PD2QC._path .. "loc/en.txt"
     end

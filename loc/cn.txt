@@ -19,7 +19,8 @@
     "pd2qc_option_english" : "English",
     "pd2qc_option_spanish" : "Español",
     "pd2qc_option_silly" :  "???",
-    "pd2qc_option_chinese" : "简体中文",
+    "pd2qc_option_chinese" :  "简体中文",
+    "pd2qc_option_russian" : "Русский",
 
     "pd2qc_option_vanillahud" : "默认Hud",
     "pd2qc_option_wolfhud" : "WolfHUD",
