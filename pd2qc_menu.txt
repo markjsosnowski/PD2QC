@@ -15,6 +15,7 @@
                 "pd2qc_option_spanish",
                 "pd2qc_option_silly",
                 "pd2qc_option_chinese",
+                "pd2qc_option_russian
             ],
             "value" : "language",
             "default_value" : 1
