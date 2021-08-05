@@ -18,7 +18,7 @@ Tap 🡆 🡇 for *"Sniper, watch out!"*
 
 Features
 --------
-•Support for 3 languages: English, Spanish, and Simplified Chinese*
+•Support for 4 languages: English, Spanish,  Simplified Chinese, and Russian (New!)*
 
 •Ability to bind the quickchat menus to any key.
 
@@ -35,7 +35,6 @@ Features
 Installation
 -------------
 **Requires SuperBLT.**
-**Requires Unofficial Simplified Chinese Localization if using the Chinese language option.**
 
 *Includes Delayed Calls Fix by SNH20.*
 
