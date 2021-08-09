@@ -48,7 +48,7 @@ Customizing Chat Messages
 -------------------------
 1.  Open the `mods/PD2QC-master/loc` folder.
 2.  Open the text file of your language of choice in any text editor.
-3.  Scroll down to `"_comment 5": "Chat Messages".
+3.  Scroll down to `"_comment 5": "Chat Messages"`.
 4.  Change any of the messages to what you want.
 5.  Reload the mod.
 
