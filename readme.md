@@ -24,7 +24,7 @@ Features
 
 •Ability to bind the quickchat menus to any key.
 
-•Dynamic: easily customize the voice lines to your liking
+•Easily change and customize the chat lines to your liking.
 
 •A quickchat hint panel so you don't have to memorize each option.
 
