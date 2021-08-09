@@ -43,3 +43,14 @@ Installation
 1. Extract "PD2QC-master" folder from the .zip into to your Payday 2 mods folder. 
 
 2. Start the game and assign keybinds in Options->Mod Keybinds
+
+Customizing Chat Messages
+-------------------------
+1.  Open the `mods/PD2QC-master/loc` folder.
+2.  Open the text file of your language of choice in any text editor.
+3.  Scroll down to `"_comment 5": "Chat Messages".
+4.  Change any of the messages to what you want.
+5.  Reload the mod.
+
+**Careful not to delete or add anything outside of the quotation marks. 
+Adding super long messages is not only obnoxious for other players but will make the HUD huge.**
