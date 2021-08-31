@@ -1,8 +1,10 @@
 PD2QC: Payday 2 Quickchats Mod
 ------------------------------
 
-**Version 1.3 Release 8/5/2021, See Changelog for Details**
 This mod is only officially hosted at [ModWorkshop](https://modworkshop.net/mod/30917).
+
+**Version 1.3 Release 8/5/2021, See Changelog for Details**
+
 
 No need to find a safe place in stealth while you take the time to type.
 Stop standing still for snipers while trying to communicate with your pub team. 
